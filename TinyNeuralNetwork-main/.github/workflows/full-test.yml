@@ -1,0 +1,76 @@
+name: Full tests
+
+on:
+  schedule:
+    - cron:  '00 19 * * *'
+
+jobs:
+  unit-test:
+    name: Full tests for ${{ matrix.os }}, PyTorch ${{ matrix.vers.pt_ver }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "macos-15-intel", "windows-latest"]
+        vers: [ {pt_ver: "1.10.0", tv_ver: "0.11.1"}, {pt_ver: "1.11.0", tv_ver: "0.12.0"}, {pt_ver: "1.12.0", tv_ver: "0.13.0"} ]
+        include:
+          - os: macos-latest
+            vers:
+              pt_ver: latest
+              tv_ver: latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure pagefile
+        if: runner.os == 'Windows'
+        uses: al-cheb/configure-pagefile-action@v1.2
+        with:
+          minimum-size: 8GB
+      - name: Set up swap space
+        if: runner.os == 'Linux'
+        uses: pierotofy/set-swap-space@v1.0
+        with:
+          swap-size-gb: 8
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          auto-update-conda: true
+          python-version: 3.9
+      - name: Install PyTorch
+        env:
+          PYTORCH_VER: ${{ matrix.vers.pt_ver }}
+          TORCHVISION_VER: ${{ matrix.vers.tv_ver }}
+        run: |
+         if [ "$RUNNER_OS" == "macOS" ]; then
+            if [[ "$TORCHVISION_VER" == "latest" && "$PYTORCH_VER" == "latest" ]]; then
+              conda install pytorch::pytorch torchvision -c pytorch
+            else
+              conda install pytorch=$PYTORCH_VER torchvision=$TORCHVISION_VER -c pytorch
+            fi
+         elif [ "$RUNNER_OS" == "Windows" ]; then
+            if [[ "$TORCHVISION_VER" == "latest" && "$PYTORCH_VER" == "latest" ]]; then
+              conda install pytorch torchvision cpuonly pillow=8 -c pytorch
+            else
+              conda install pytorch=$PYTORCH_VER torchvision=$TORCHVISION_VER cpuonly pillow=8 -c pytorch
+            fi
+         else
+            if [[ "$TORCHVISION_VER" == "latest" && "$PYTORCH_VER" == "latest" ]]; then
+              conda install pytorch torchvision cpuonly -c pytorch
+            else
+              conda install pytorch=$PYTORCH_VER torchvision=$TORCHVISION_VER cpuonly -c pytorch
+            fi
+         fi
+      - name: Install TinyNeuralNetwork
+        run: pip install .
+      - name: Install test dependencies
+        env:
+          PYTORCH_VER: ${{ matrix.vers.pt_ver }}
+          TORCHVISION_VER: ${{ matrix.vers.tv_ver }}
+        run: pip install black==22.3.0 ruff tensorflow pytest scipy interval
+      - name: Lint checks
+        run: python -m ruff check .
+      - name: Run tests
+        run: |
+          source activate.sh
+          python tests/test_run.py

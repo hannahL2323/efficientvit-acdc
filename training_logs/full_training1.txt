@@ -1,0 +1,1111 @@
+(base) deng@deng-Precision-7920-Tower:~/efficientvit$ cd /home/deng/efficientvit
+(base) deng@deng-Precision-7920-Tower:~/efficientvit$ conda activate efficientvit
+(efficientvit) deng@deng-Precision-7920-Tower:~/efficientvit$ CUDA_VISIBLE_DEVICES=0 python applications/efficientvit_seg/finetune_acdc.py \
+    --data_path /home/deng/datasets/acdc_mmseg \
+    --model efficientvit-seg-b1-cityscapes \
+    --weight_url ./checkpoints/efficientvit_seg_b1_cityscapes.pt \
+    --batch_size 4 \
+    --iters 160000 \
+    --lr 1e-4 \
+    --save_dir ./checkpoints_acdc
+Using device: cuda
+Loading model: efficientvit-seg-b1-cityscapes
+Loading ACDC dataset...
+ACDC train set: found 1600 samples
+ACDC val set: found 406 samples
+
+=== Training for 160000 iterations ===
+Starting training for 160000 iterations...
+Iteration 500/160000, Avg Loss: 0.2579, Time: 147.86s
+Iteration 1000/160000, Avg Loss: 0.2060, Time: 294.44s
+Iteration 1500/160000, Avg Loss: 0.1802, Time: 441.28s
+Iteration 2000/160000, Avg Loss: 0.1624, Time: 587.77s
+Iteration 2500/160000, Avg Loss: 0.1486, Time: 735.69s
+Iteration 3000/160000, Avg Loss: 0.1378, Time: 882.33s
+Iteration 3500/160000, Avg Loss: 0.1293, Time: 1028.76s
+Iteration 4000/160000, Avg Loss: 0.1223, Time: 1175.36s
+Iteration 4500/160000, Avg Loss: 0.1162, Time: 1323.41s
+Iteration 5000/160000, Avg Loss: 0.1113, Time: 1469.71s
+
+=== Evaluating at iteration 5000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 22.89it/s]
+Val mIoU: 41.64%
+Per-class IoU:
+  road: 89.49%
+  sidewalk: 70.02%
+  building: 72.40%
+  wall: 27.33%
+  fence: 20.52%
+  pole: 44.86%
+  traffic light: 27.51%
+  traffic sign: 44.18%
+  vegetation: 76.39%
+  terrain: 28.16%
+  sky: 89.26%
+  person: 27.17%
+  rider: 12.44%
+  car: 67.81%
+  truck: 18.09%
+  bus: 18.79%
+  train: 25.39%
+  motorcycle: 15.75%
+  bicycle: 15.55%
+Best model saved! mIoU: 41.64%
+Iteration 5500/160000, Avg Loss: 0.1066, Time: 1633.74s
+Iteration 6000/160000, Avg Loss: 0.1024, Time: 1780.20s
+Iteration 6500/160000, Avg Loss: 0.0986, Time: 1927.65s
+Iteration 7000/160000, Avg Loss: 0.0953, Time: 2073.95s
+Iteration 7500/160000, Avg Loss: 0.0921, Time: 2220.30s
+Iteration 8000/160000, Avg Loss: 0.0904, Time: 2366.59s
+Iteration 8500/160000, Avg Loss: 0.0884, Time: 2513.69s
+Iteration 9000/160000, Avg Loss: 0.0860, Time: 2660.18s
+Iteration 9500/160000, Avg Loss: 0.0837, Time: 2806.40s
+Iteration 10000/160000, Avg Loss: 0.0815, Time: 2952.62s
+
+=== Evaluating at iteration 10000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 22.80it/s]
+Val mIoU: 41.61%
+Per-class IoU:
+  road: 89.87%
+  sidewalk: 72.00%
+  building: 73.06%
+  wall: 27.90%
+  fence: 21.58%
+  pole: 46.13%
+  traffic light: 30.65%
+  traffic sign: 44.14%
+  vegetation: 75.99%
+  terrain: 28.89%
+  sky: 89.76%
+  person: 27.98%
+  rider: 10.22%
+  car: 67.36%
+  truck: 20.69%
+  bus: 17.85%
+  train: 19.17%
+  motorcycle: 13.81%
+  bicycle: 13.63%
+Iteration 10500/160000, Avg Loss: 0.0795, Time: 3117.63s
+Iteration 11000/160000, Avg Loss: 0.0777, Time: 3264.02s
+Iteration 11500/160000, Avg Loss: 0.0766, Time: 3410.23s
+Iteration 12000/160000, Avg Loss: 0.0754, Time: 3556.42s
+Iteration 12500/160000, Avg Loss: 0.0742, Time: 3703.84s
+Iteration 13000/160000, Avg Loss: 0.0727, Time: 3850.30s
+Iteration 13500/160000, Avg Loss: 0.0713, Time: 3996.79s
+Iteration 14000/160000, Avg Loss: 0.0700, Time: 4142.98s
+Iteration 14500/160000, Avg Loss: 0.0688, Time: 4290.18s
+Iteration 15000/160000, Avg Loss: 0.0676, Time: 4436.62s
+
+=== Evaluating at iteration 15000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.03it/s]
+Val mIoU: 40.96%
+Per-class IoU:
+  road: 89.80%
+  sidewalk: 71.02%
+  building: 71.63%
+  wall: 27.63%
+  fence: 21.44%
+  pole: 45.96%
+  traffic light: 30.93%
+  traffic sign: 41.48%
+  vegetation: 76.36%
+  terrain: 29.26%
+  sky: 89.30%
+  person: 26.00%
+  rider: 7.20%
+  car: 69.10%
+  truck: 18.19%
+  bus: 20.76%
+  train: 17.30%
+  motorcycle: 12.18%
+  bicycle: 12.79%
+Iteration 15500/160000, Avg Loss: 0.0665, Time: 4600.50s
+Iteration 16000/160000, Avg Loss: 0.0662, Time: 4746.80s
+Iteration 16500/160000, Avg Loss: 0.0652, Time: 4893.97s
+Iteration 17000/160000, Avg Loss: 0.0642, Time: 5040.45s
+Iteration 17500/160000, Avg Loss: 0.0632, Time: 5186.72s
+Iteration 18000/160000, Avg Loss: 0.0624, Time: 5333.06s
+Iteration 18500/160000, Avg Loss: 0.0620, Time: 5480.40s
+Iteration 19000/160000, Avg Loss: 0.0616, Time: 5626.61s
+Iteration 19500/160000, Avg Loss: 0.0609, Time: 5772.79s
+Iteration 20000/160000, Avg Loss: 0.0601, Time: 5919.08s
+
+=== Evaluating at iteration 20000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.64it/s]
+Val mIoU: 41.12%
+Per-class IoU:
+  road: 89.95%
+  sidewalk: 71.61%
+  building: 72.82%
+  wall: 27.45%
+  fence: 20.57%
+  pole: 44.88%
+  traffic light: 26.91%
+  traffic sign: 42.15%
+  vegetation: 76.47%
+  terrain: 29.82%
+  sky: 89.40%
+  person: 26.95%
+  rider: 8.37%
+  car: 67.79%
+  truck: 18.13%
+  bus: 19.50%
+  train: 23.63%
+  motorcycle: 12.94%
+  bicycle: 11.91%
+Iteration 20500/160000, Avg Loss: 0.0593, Time: 6083.40s
+Iteration 21000/160000, Avg Loss: 0.0586, Time: 6229.80s
+Iteration 21500/160000, Avg Loss: 0.0579, Time: 6375.99s
+Iteration 22000/160000, Avg Loss: 0.0572, Time: 6522.22s
+Iteration 22500/160000, Avg Loss: 0.0566, Time: 6669.59s
+Iteration 23000/160000, Avg Loss: 0.0561, Time: 6815.74s
+Iteration 23500/160000, Avg Loss: 0.0556, Time: 6962.07s
+Iteration 24000/160000, Avg Loss: 0.0550, Time: 7108.31s
+Iteration 24500/160000, Avg Loss: 0.0544, Time: 7255.47s
+Iteration 25000/160000, Avg Loss: 0.0539, Time: 7401.49s
+
+=== Evaluating at iteration 25000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.27it/s]
+Val mIoU: 40.70%
+Per-class IoU:
+  road: 89.83%
+  sidewalk: 71.16%
+  building: 72.47%
+  wall: 28.52%
+  fence: 20.19%
+  pole: 43.39%
+  traffic light: 28.87%
+  traffic sign: 41.13%
+  vegetation: 76.35%
+  terrain: 28.68%
+  sky: 89.17%
+  person: 27.41%
+  rider: 5.86%
+  car: 66.55%
+  truck: 18.54%
+  bus: 21.04%
+  train: 22.31%
+  motorcycle: 10.94%
+  bicycle: 10.88%
+Iteration 25500/160000, Avg Loss: 0.0533, Time: 7564.95s
+Iteration 26000/160000, Avg Loss: 0.0530, Time: 7710.99s
+Iteration 26500/160000, Avg Loss: 0.0527, Time: 7858.35s
+Iteration 27000/160000, Avg Loss: 0.0523, Time: 8004.37s
+Iteration 27500/160000, Avg Loss: 0.0518, Time: 8150.52s
+Iteration 28000/160000, Avg Loss: 0.0513, Time: 8296.75s
+Iteration 28500/160000, Avg Loss: 0.0508, Time: 8444.21s
+Iteration 29000/160000, Avg Loss: 0.0503, Time: 8590.62s
+Iteration 29500/160000, Avg Loss: 0.0499, Time: 8736.69s
+Iteration 30000/160000, Avg Loss: 0.0495, Time: 8883.05s
+
+=== Evaluating at iteration 30000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.51it/s]
+Val mIoU: 40.46%
+Per-class IoU:
+  road: 89.91%
+  sidewalk: 71.73%
+  building: 72.57%
+  wall: 27.43%
+  fence: 20.36%
+  pole: 44.94%
+  traffic light: 29.40%
+  traffic sign: 41.96%
+  vegetation: 76.00%
+  terrain: 30.42%
+  sky: 89.07%
+  person: 25.41%
+  rider: 6.49%
+  car: 67.65%
+  truck: 16.88%
+  bus: 19.10%
+  train: 18.63%
+  motorcycle: 9.87%
+  bicycle: 10.90%
+Iteration 30500/160000, Avg Loss: 0.0491, Time: 9047.44s
+Iteration 31000/160000, Avg Loss: 0.0487, Time: 9193.58s
+Iteration 31500/160000, Avg Loss: 0.0484, Time: 9339.91s
+Iteration 32000/160000, Avg Loss: 0.0480, Time: 9486.33s
+Iteration 32500/160000, Avg Loss: 0.0476, Time: 9633.87s
+Iteration 33000/160000, Avg Loss: 0.0472, Time: 9780.34s
+Iteration 33500/160000, Avg Loss: 0.0469, Time: 9926.55s
+Iteration 34000/160000, Avg Loss: 0.0465, Time: 10072.85s
+Iteration 34500/160000, Avg Loss: 0.0462, Time: 10220.28s
+Iteration 35000/160000, Avg Loss: 0.0460, Time: 10366.36s
+
+=== Evaluating at iteration 35000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 22.81it/s]
+Val mIoU: 33.81%
+Per-class IoU:
+  road: 86.22%
+  sidewalk: 62.09%
+  building: 57.75%
+  wall: 18.57%
+  fence: 15.78%
+  pole: 37.23%
+  traffic light: 24.59%
+  traffic sign: 37.15%
+  vegetation: 69.52%
+  terrain: 22.79%
+  sky: 82.41%
+  person: 19.57%
+  rider: 4.84%
+  car: 62.79%
+  truck: 12.31%
+  bus: 11.96%
+  train: 1.83%
+  motorcycle: 8.34%
+  bicycle: 6.75%
+Iteration 35500/160000, Avg Loss: 0.0457, Time: 10530.35s
+Iteration 36000/160000, Avg Loss: 0.0454, Time: 10676.48s
+Iteration 36500/160000, Avg Loss: 0.0451, Time: 10823.65s
+Iteration 37000/160000, Avg Loss: 0.0447, Time: 10969.80s
+Iteration 37500/160000, Avg Loss: 0.0444, Time: 11116.12s
+Iteration 38000/160000, Avg Loss: 0.0441, Time: 11262.41s
+Iteration 38500/160000, Avg Loss: 0.0438, Time: 11409.62s
+Iteration 39000/160000, Avg Loss: 0.0437, Time: 11555.80s
+Iteration 39500/160000, Avg Loss: 0.0435, Time: 11702.10s
+Iteration 40000/160000, Avg Loss: 0.0432, Time: 11848.40s
+
+=== Evaluating at iteration 40000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:16<00:00, 24.26it/s]
+Val mIoU: 40.27%
+Per-class IoU:
+  road: 89.80%
+  sidewalk: 71.54%
+  building: 72.59%
+  wall: 28.05%
+  fence: 19.91%
+  pole: 44.62%
+  traffic light: 26.62%
+  traffic sign: 42.21%
+  vegetation: 76.76%
+  terrain: 28.80%
+  sky: 89.22%
+  person: 25.11%
+  rider: 5.90%
+  car: 66.53%
+  truck: 15.76%
+  bus: 20.92%
+  train: 18.70%
+  motorcycle: 10.12%
+  bicycle: 12.00%
+Iteration 40500/160000, Avg Loss: 0.0429, Time: 12012.44s
+Iteration 41000/160000, Avg Loss: 0.0426, Time: 12158.85s
+Iteration 41500/160000, Avg Loss: 0.0423, Time: 12305.19s
+Iteration 42000/160000, Avg Loss: 0.0420, Time: 12451.47s
+Iteration 42500/160000, Avg Loss: 0.0418, Time: 12598.97s
+Iteration 43000/160000, Avg Loss: 0.0415, Time: 12745.34s
+Iteration 43500/160000, Avg Loss: 0.0413, Time: 12891.46s
+Iteration 44000/160000, Avg Loss: 0.0410, Time: 13037.53s
+Iteration 44500/160000, Avg Loss: 0.0408, Time: 13184.67s
+Iteration 45000/160000, Avg Loss: 0.0406, Time: 13330.76s
+
+=== Evaluating at iteration 45000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:16<00:00, 23.98it/s]
+Val mIoU: 36.94%
+Per-class IoU:
+  road: 86.53%
+  sidewalk: 63.37%
+  building: 66.67%
+  wall: 25.00%
+  fence: 16.22%
+  pole: 41.32%
+  traffic light: 22.46%
+  traffic sign: 40.50%
+  vegetation: 72.21%
+  terrain: 22.78%
+  sky: 87.22%
+  person: 22.83%
+  rider: 5.07%
+  car: 66.90%
+  truck: 15.98%
+  bus: 15.27%
+  train: 18.31%
+  motorcycle: 8.19%
+  bicycle: 5.09%
+Iteration 45500/160000, Avg Loss: 0.0405, Time: 13493.74s
+Iteration 46000/160000, Avg Loss: 0.0404, Time: 13640.02s
+Iteration 46500/160000, Avg Loss: 0.0401, Time: 13787.06s
+Iteration 47000/160000, Avg Loss: 0.0399, Time: 13933.31s
+Iteration 47500/160000, Avg Loss: 0.0397, Time: 14079.60s
+Iteration 48000/160000, Avg Loss: 0.0394, Time: 14225.64s
+Iteration 48500/160000, Avg Loss: 0.0392, Time: 14372.74s
+Iteration 49000/160000, Avg Loss: 0.0390, Time: 14518.96s
+Iteration 49500/160000, Avg Loss: 0.0388, Time: 14665.06s
+Iteration 50000/160000, Avg Loss: 0.0386, Time: 14811.37s
+
+=== Evaluating at iteration 50000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 22.67it/s]
+Val mIoU: 39.79%
+Per-class IoU:
+  road: 89.61%
+  sidewalk: 70.98%
+  building: 72.08%
+  wall: 27.59%
+  fence: 19.54%
+  pole: 44.05%
+  traffic light: 24.65%
+  traffic sign: 39.51%
+  vegetation: 76.86%
+  terrain: 28.34%
+  sky: 89.21%
+  person: 24.83%
+  rider: 6.58%
+  car: 66.62%
+  truck: 14.89%
+  bus: 18.88%
+  train: 20.57%
+  motorcycle: 10.52%
+  bicycle: 10.74%
+Iteration 50500/160000, Avg Loss: 0.0384, Time: 14976.67s
+Iteration 51000/160000, Avg Loss: 0.0382, Time: 15123.06s
+Iteration 51500/160000, Avg Loss: 0.0381, Time: 15269.46s
+Iteration 52000/160000, Avg Loss: 0.0380, Time: 15415.72s
+Iteration 52500/160000, Avg Loss: 0.0378, Time: 15563.30s
+Iteration 53000/160000, Avg Loss: 0.0376, Time: 15709.40s
+Iteration 53500/160000, Avg Loss: 0.0374, Time: 15855.69s
+Iteration 54000/160000, Avg Loss: 0.0372, Time: 16001.79s
+Iteration 54500/160000, Avg Loss: 0.0370, Time: 16148.96s
+Iteration 55000/160000, Avg Loss: 0.0369, Time: 16295.22s
+
+=== Evaluating at iteration 55000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 22.76it/s]
+Val mIoU: 39.61%
+Per-class IoU:
+  road: 89.80%
+  sidewalk: 71.62%
+  building: 72.73%
+  wall: 27.28%
+  fence: 20.02%
+  pole: 43.20%
+  traffic light: 25.40%
+  traffic sign: 42.31%
+  vegetation: 76.03%
+  terrain: 29.42%
+  sky: 89.24%
+  person: 23.97%
+  rider: 5.96%
+  car: 65.59%
+  truck: 13.35%
+  bus: 18.13%
+  train: 16.98%
+  motorcycle: 10.37%
+  bicycle: 11.25%
+Iteration 55500/160000, Avg Loss: 0.0367, Time: 16459.19s
+Iteration 56000/160000, Avg Loss: 0.0365, Time: 16605.60s
+Iteration 56500/160000, Avg Loss: 0.0365, Time: 16752.95s
+Iteration 57000/160000, Avg Loss: 0.0364, Time: 16899.11s
+Iteration 57500/160000, Avg Loss: 0.0362, Time: 17045.37s
+Iteration 58000/160000, Avg Loss: 0.0360, Time: 17191.61s
+Iteration 58500/160000, Avg Loss: 0.0359, Time: 17338.97s
+Iteration 59000/160000, Avg Loss: 0.0357, Time: 17485.18s
+Iteration 59500/160000, Avg Loss: 0.0355, Time: 17631.43s
+Iteration 60000/160000, Avg Loss: 0.0354, Time: 17777.68s
+
+=== Evaluating at iteration 60000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.84it/s]
+Val mIoU: 39.35%
+Per-class IoU:
+  road: 89.59%
+  sidewalk: 71.38%
+  building: 72.22%
+  wall: 27.03%
+  fence: 19.45%
+  pole: 45.17%
+  traffic light: 23.48%
+  traffic sign: 40.93%
+  vegetation: 76.14%
+  terrain: 28.86%
+  sky: 89.05%
+  person: 23.96%
+  rider: 5.79%
+  car: 65.95%
+  truck: 13.87%
+  bus: 16.86%
+  train: 17.47%
+  motorcycle: 9.34%
+  bicycle: 11.09%
+Iteration 60500/160000, Avg Loss: 0.0352, Time: 17942.02s
+Iteration 61000/160000, Avg Loss: 0.0351, Time: 18088.39s
+Iteration 61500/160000, Avg Loss: 0.0349, Time: 18234.81s
+Iteration 62000/160000, Avg Loss: 0.0348, Time: 18380.98s
+Iteration 62500/160000, Avg Loss: 0.0346, Time: 18528.56s
+Iteration 63000/160000, Avg Loss: 0.0346, Time: 18674.88s
+Iteration 63500/160000, Avg Loss: 0.0345, Time: 18821.11s
+Iteration 64000/160000, Avg Loss: 0.0344, Time: 18967.42s
+Iteration 64500/160000, Avg Loss: 0.0343, Time: 19114.64s
+Iteration 65000/160000, Avg Loss: 0.0342, Time: 19260.57s
+
+=== Evaluating at iteration 65000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.81it/s]
+Val mIoU: 39.56%
+Per-class IoU:
+  road: 89.75%
+  sidewalk: 71.74%
+  building: 72.58%
+  wall: 27.30%
+  fence: 19.97%
+  pole: 43.34%
+  traffic light: 24.83%
+  traffic sign: 41.17%
+  vegetation: 76.25%
+  terrain: 28.47%
+  sky: 89.38%
+  person: 24.33%
+  rider: 5.81%
+  car: 65.78%
+  truck: 15.13%
+  bus: 17.44%
+  train: 19.43%
+  motorcycle: 9.53%
+  bicycle: 9.47%
+Iteration 65500/160000, Avg Loss: 0.0340, Time: 19423.67s
+Iteration 66000/160000, Avg Loss: 0.0339, Time: 19570.04s
+Iteration 66500/160000, Avg Loss: 0.0337, Time: 19741.07s
+Iteration 67000/160000, Avg Loss: 0.0336, Time: 19936.17s
+Iteration 67500/160000, Avg Loss: 0.0335, Time: 20111.47s
+Iteration 68000/160000, Avg Loss: 0.0333, Time: 20257.80s
+Iteration 68500/160000, Avg Loss: 0.0332, Time: 20405.06s
+Iteration 69000/160000, Avg Loss: 0.0331, Time: 20551.24s
+Iteration 69500/160000, Avg Loss: 0.0330, Time: 20697.40s
+Iteration 70000/160000, Avg Loss: 0.0329, Time: 20843.69s
+
+=== Evaluating at iteration 70000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:18<00:00, 22.31it/s]
+Val mIoU: 39.44%
+Per-class IoU:
+  road: 89.64%
+  sidewalk: 71.15%
+  building: 72.33%
+  wall: 27.18%
+  fence: 18.64%
+  pole: 43.13%
+  traffic light: 25.85%
+  traffic sign: 40.85%
+  vegetation: 75.79%
+  terrain: 28.03%
+  sky: 89.32%
+  person: 25.32%
+  rider: 5.77%
+  car: 65.79%
+  truck: 14.10%
+  bus: 18.17%
+  train: 19.40%
+  motorcycle: 8.48%
+  bicycle: 10.37%
+Iteration 70500/160000, Avg Loss: 0.0328, Time: 21009.09s
+Iteration 71000/160000, Avg Loss: 0.0327, Time: 21155.33s
+Iteration 71500/160000, Avg Loss: 0.0326, Time: 21301.46s
+Iteration 72000/160000, Avg Loss: 0.0325, Time: 21447.71s
+Iteration 72500/160000, Avg Loss: 0.0323, Time: 21594.80s
+Iteration 73000/160000, Avg Loss: 0.0322, Time: 21740.99s
+Iteration 73500/160000, Avg Loss: 0.0321, Time: 21887.32s
+Iteration 74000/160000, Avg Loss: 0.0320, Time: 22033.59s
+Iteration 74500/160000, Avg Loss: 0.0319, Time: 22181.04s
+Iteration 75000/160000, Avg Loss: 0.0318, Time: 22327.26s
+
+=== Evaluating at iteration 75000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.42it/s]
+Val mIoU: 39.01%
+Per-class IoU:
+  road: 89.68%
+  sidewalk: 71.59%
+  building: 71.81%
+  wall: 27.40%
+  fence: 19.13%
+  pole: 43.04%
+  traffic light: 22.33%
+  traffic sign: 40.89%
+  vegetation: 75.86%
+  terrain: 28.08%
+  sky: 89.04%
+  person: 25.46%
+  rider: 5.81%
+  car: 65.78%
+  truck: 13.44%
+  bus: 16.20%
+  train: 18.19%
+  motorcycle: 7.92%
+  bicycle: 9.63%
+Iteration 75500/160000, Avg Loss: 0.0317, Time: 22490.58s
+Iteration 76000/160000, Avg Loss: 0.0316, Time: 22636.94s
+Iteration 76500/160000, Avg Loss: 0.0314, Time: 22784.30s
+Iteration 77000/160000, Avg Loss: 0.0313, Time: 22930.48s
+Iteration 77500/160000, Avg Loss: 0.0312, Time: 23076.80s
+Iteration 78000/160000, Avg Loss: 0.0311, Time: 23222.88s
+Iteration 78500/160000, Avg Loss: 0.0311, Time: 23370.09s
+Iteration 79000/160000, Avg Loss: 0.0311, Time: 23516.30s
+Iteration 79500/160000, Avg Loss: 0.0310, Time: 23662.58s
+Iteration 80000/160000, Avg Loss: 0.0309, Time: 23808.73s
+
+=== Evaluating at iteration 80000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.48it/s]
+Val mIoU: 39.62%
+Per-class IoU:
+  road: 89.87%
+  sidewalk: 71.28%
+  building: 72.36%
+  wall: 27.35%
+  fence: 19.68%
+  pole: 43.75%
+  traffic light: 25.01%
+  traffic sign: 41.11%
+  vegetation: 76.38%
+  terrain: 29.25%
+  sky: 89.29%
+  person: 24.82%
+  rider: 5.41%
+  car: 66.95%
+  truck: 14.17%
+  bus: 16.81%
+  train: 19.36%
+  motorcycle: 9.72%
+  bicycle: 10.28%
+Iteration 80500/160000, Avg Loss: 0.0308, Time: 23973.44s
+Iteration 81000/160000, Avg Loss: 0.0307, Time: 24119.76s
+Iteration 81500/160000, Avg Loss: 0.0306, Time: 24266.01s
+Iteration 82000/160000, Avg Loss: 0.0305, Time: 24412.30s
+Iteration 82500/160000, Avg Loss: 0.0304, Time: 24559.70s
+Iteration 83000/160000, Avg Loss: 0.0303, Time: 24705.91s
+Iteration 83500/160000, Avg Loss: 0.0302, Time: 24852.25s
+Iteration 84000/160000, Avg Loss: 0.0301, Time: 24998.38s
+Iteration 84500/160000, Avg Loss: 0.0300, Time: 25145.55s
+Iteration 85000/160000, Avg Loss: 0.0299, Time: 25291.73s
+
+=== Evaluating at iteration 85000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.76it/s]
+Val mIoU: 39.24%
+Per-class IoU:
+  road: 89.91%
+  sidewalk: 71.55%
+  building: 72.07%
+  wall: 27.28%
+  fence: 19.24%
+  pole: 43.02%
+  traffic light: 23.63%
+  traffic sign: 40.44%
+  vegetation: 76.16%
+  terrain: 28.18%
+  sky: 89.14%
+  person: 23.01%
+  rider: 5.74%
+  car: 66.16%
+  truck: 12.83%
+  bus: 16.80%
+  train: 22.65%
+  motorcycle: 7.83%
+  bicycle: 9.87%
+Iteration 85500/160000, Avg Loss: 0.0298, Time: 25454.91s
+Iteration 86000/160000, Avg Loss: 0.0297, Time: 25601.31s
+Iteration 86500/160000, Avg Loss: 0.0296, Time: 25748.22s
+Iteration 87000/160000, Avg Loss: 0.0295, Time: 25894.38s
+Iteration 87500/160000, Avg Loss: 0.0295, Time: 26040.42s
+Iteration 88000/160000, Avg Loss: 0.0294, Time: 26186.65s
+Iteration 88500/160000, Avg Loss: 0.0293, Time: 26333.98s
+Iteration 89000/160000, Avg Loss: 0.0292, Time: 26480.01s
+Iteration 89500/160000, Avg Loss: 0.0292, Time: 26626.06s
+Iteration 90000/160000, Avg Loss: 0.0292, Time: 26772.31s
+
+=== Evaluating at iteration 90000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.37it/s]
+Val mIoU: 39.55%
+Per-class IoU:
+  road: 89.75%
+  sidewalk: 71.76%
+  building: 72.60%
+  wall: 27.11%
+  fence: 19.81%
+  pole: 43.70%
+  traffic light: 24.63%
+  traffic sign: 41.48%
+  vegetation: 76.27%
+  terrain: 28.40%
+  sky: 89.30%
+  person: 23.32%
+  rider: 6.29%
+  car: 65.76%
+  truck: 13.37%
+  bus: 15.32%
+  train: 21.09%
+  motorcycle: 10.61%
+  bicycle: 10.85%
+Iteration 90500/160000, Avg Loss: 0.0291, Time: 26936.64s
+Iteration 91000/160000, Avg Loss: 0.0290, Time: 27082.88s
+Iteration 91500/160000, Avg Loss: 0.0289, Time: 27228.92s
+Iteration 92000/160000, Avg Loss: 0.0288, Time: 27375.19s
+Iteration 92500/160000, Avg Loss: 0.0287, Time: 27522.62s
+Iteration 93000/160000, Avg Loss: 0.0287, Time: 27668.89s
+Iteration 93500/160000, Avg Loss: 0.0286, Time: 27815.06s
+Iteration 94000/160000, Avg Loss: 0.0285, Time: 27961.36s
+Iteration 94500/160000, Avg Loss: 0.0284, Time: 28108.67s
+Iteration 95000/160000, Avg Loss: 0.0283, Time: 28254.79s
+
+=== Evaluating at iteration 95000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.83it/s]
+Val mIoU: 39.16%
+Per-class IoU:
+  road: 89.87%
+  sidewalk: 71.62%
+  building: 72.28%
+  wall: 26.81%
+  fence: 19.68%
+  pole: 43.52%
+  traffic light: 24.47%
+  traffic sign: 39.37%
+  vegetation: 76.34%
+  terrain: 28.56%
+  sky: 89.10%
+  person: 24.39%
+  rider: 5.36%
+  car: 64.71%
+  truck: 12.72%
+  bus: 16.79%
+  train: 19.15%
+  motorcycle: 8.81%
+  bicycle: 10.57%
+Iteration 95500/160000, Avg Loss: 0.0283, Time: 28417.95s
+Iteration 96000/160000, Avg Loss: 0.0283, Time: 28564.18s
+Iteration 96500/160000, Avg Loss: 0.0282, Time: 28711.35s
+Iteration 97000/160000, Avg Loss: 0.0281, Time: 28857.61s
+Iteration 97500/160000, Avg Loss: 0.0281, Time: 29003.73s
+Iteration 98000/160000, Avg Loss: 0.0280, Time: 29149.76s
+Iteration 98500/160000, Avg Loss: 0.0279, Time: 29297.33s
+Iteration 99000/160000, Avg Loss: 0.0278, Time: 29443.46s
+Iteration 99500/160000, Avg Loss: 0.0277, Time: 29589.78s
+Iteration 100000/160000, Avg Loss: 0.0277, Time: 29735.83s
+
+=== Evaluating at iteration 100000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.40it/s]
+Val mIoU: 39.30%
+Per-class IoU:
+  road: 89.97%
+  sidewalk: 71.86%
+  building: 72.38%
+  wall: 27.41%
+  fence: 19.92%
+  pole: 43.41%
+  traffic light: 23.72%
+  traffic sign: 41.13%
+  vegetation: 76.32%
+  terrain: 28.90%
+  sky: 89.10%
+  person: 24.01%
+  rider: 6.02%
+  car: 65.40%
+  truck: 13.27%
+  bus: 16.39%
+  train: 17.78%
+  motorcycle: 10.03%
+  bicycle: 9.70%
+Iteration 100500/160000, Avg Loss: 0.0276, Time: 29900.24s
+Iteration 101000/160000, Avg Loss: 0.0275, Time: 30046.34s
+Iteration 101500/160000, Avg Loss: 0.0275, Time: 30192.71s
+Iteration 102000/160000, Avg Loss: 0.0274, Time: 30338.85s
+Iteration 102500/160000, Avg Loss: 0.0273, Time: 30486.22s
+Iteration 103000/160000, Avg Loss: 0.0272, Time: 30632.61s
+Iteration 103500/160000, Avg Loss: 0.0272, Time: 30778.88s
+Iteration 104000/160000, Avg Loss: 0.0271, Time: 30924.96s
+Iteration 104500/160000, Avg Loss: 0.0270, Time: 31072.11s
+Iteration 105000/160000, Avg Loss: 0.0270, Time: 31218.41s
+
+=== Evaluating at iteration 105000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 22.74it/s]
+Val mIoU: 38.77%
+Per-class IoU:
+  road: 89.74%
+  sidewalk: 71.37%
+  building: 72.38%
+  wall: 27.09%
+  fence: 20.07%
+  pole: 43.76%
+  traffic light: 24.62%
+  traffic sign: 41.76%
+  vegetation: 76.24%
+  terrain: 28.21%
+  sky: 89.04%
+  person: 22.21%
+  rider: 4.43%
+  car: 66.59%
+  truck: 13.06%
+  bus: 13.39%
+  train: 15.56%
+  motorcycle: 7.52%
+  bicycle: 9.55%
+Iteration 105500/160000, Avg Loss: 0.0269, Time: 31382.50s
+Iteration 106000/160000, Avg Loss: 0.0269, Time: 31528.73s
+Iteration 106500/160000, Avg Loss: 0.0268, Time: 31676.04s
+Iteration 107000/160000, Avg Loss: 0.0268, Time: 31822.21s
+Iteration 107500/160000, Avg Loss: 0.0267, Time: 31968.25s
+Iteration 108000/160000, Avg Loss: 0.0266, Time: 32114.65s
+Iteration 108500/160000, Avg Loss: 0.0266, Time: 32261.84s
+Iteration 109000/160000, Avg Loss: 0.0265, Time: 32408.13s
+Iteration 109500/160000, Avg Loss: 0.0264, Time: 32554.24s
+Iteration 110000/160000, Avg Loss: 0.0264, Time: 32700.55s
+
+=== Evaluating at iteration 110000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.57it/s]
+Val mIoU: 38.92%
+Per-class IoU:
+  road: 89.81%
+  sidewalk: 71.42%
+  building: 72.13%
+  wall: 26.97%
+  fence: 19.72%
+  pole: 42.89%
+  traffic light: 23.69%
+  traffic sign: 40.74%
+  vegetation: 76.57%
+  terrain: 28.76%
+  sky: 89.18%
+  person: 21.90%
+  rider: 5.10%
+  car: 66.65%
+  truck: 13.00%
+  bus: 14.44%
+  train: 15.33%
+  motorcycle: 9.03%
+  bicycle: 12.13%
+Iteration 110500/160000, Avg Loss: 0.0263, Time: 32864.96s
+Iteration 111000/160000, Avg Loss: 0.0263, Time: 33010.96s
+Iteration 111500/160000, Avg Loss: 0.0263, Time: 33157.18s
+Iteration 112000/160000, Avg Loss: 0.0262, Time: 33303.41s
+Iteration 112500/160000, Avg Loss: 0.0262, Time: 33450.51s
+Iteration 113000/160000, Avg Loss: 0.0261, Time: 33596.70s
+Iteration 113500/160000, Avg Loss: 0.0260, Time: 33742.92s
+Iteration 114000/160000, Avg Loss: 0.0260, Time: 33888.91s
+Iteration 114500/160000, Avg Loss: 0.0259, Time: 34036.34s
+Iteration 115000/160000, Avg Loss: 0.0258, Time: 34182.57s
+
+=== Evaluating at iteration 115000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.40it/s]
+Val mIoU: 38.52%
+Per-class IoU:
+  road: 89.83%
+  sidewalk: 71.52%
+  building: 72.19%
+  wall: 26.45%
+  fence: 18.49%
+  pole: 42.73%
+  traffic light: 23.46%
+  traffic sign: 40.78%
+  vegetation: 75.63%
+  terrain: 28.12%
+  sky: 88.94%
+  person: 22.40%
+  rider: 5.61%
+  car: 65.82%
+  truck: 13.76%
+  bus: 12.28%
+  train: 16.27%
+  motorcycle: 7.62%
+  bicycle: 9.88%
+Iteration 115500/160000, Avg Loss: 0.0258, Time: 34345.89s
+Iteration 116000/160000, Avg Loss: 0.0257, Time: 34492.23s
+Iteration 116500/160000, Avg Loss: 0.0257, Time: 34639.48s
+Iteration 117000/160000, Avg Loss: 0.0256, Time: 34785.67s
+Iteration 117500/160000, Avg Loss: 0.0256, Time: 34931.80s
+Iteration 118000/160000, Avg Loss: 0.0255, Time: 35078.11s
+Iteration 118500/160000, Avg Loss: 0.0254, Time: 35224.98s
+Iteration 119000/160000, Avg Loss: 0.0254, Time: 35371.25s
+Iteration 119500/160000, Avg Loss: 0.0253, Time: 35517.37s
+Iteration 120000/160000, Avg Loss: 0.0253, Time: 35663.49s
+
+=== Evaluating at iteration 120000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.55it/s]
+Val mIoU: 37.99%
+Per-class IoU:
+  road: 89.62%
+  sidewalk: 71.37%
+  building: 71.07%
+  wall: 26.38%
+  fence: 19.26%
+  pole: 43.22%
+  traffic light: 21.70%
+  traffic sign: 40.59%
+  vegetation: 75.29%
+  terrain: 26.80%
+  sky: 88.67%
+  person: 21.91%
+  rider: 5.78%
+  car: 66.43%
+  truck: 11.82%
+  bus: 13.21%
+  train: 14.71%
+  motorcycle: 6.63%
+  bicycle: 7.33%
+Iteration 120500/160000, Avg Loss: 0.0252, Time: 35827.79s
+Iteration 121000/160000, Avg Loss: 0.0252, Time: 35974.08s
+Iteration 121500/160000, Avg Loss: 0.0252, Time: 36120.22s
+Iteration 122000/160000, Avg Loss: 0.0251, Time: 36266.59s
+Iteration 122500/160000, Avg Loss: 0.0250, Time: 36413.60s
+Iteration 123000/160000, Avg Loss: 0.0250, Time: 36559.74s
+Iteration 123500/160000, Avg Loss: 0.0249, Time: 36705.81s
+Iteration 124000/160000, Avg Loss: 0.0249, Time: 36851.88s
+Iteration 124500/160000, Avg Loss: 0.0248, Time: 36998.92s
+Iteration 125000/160000, Avg Loss: 0.0248, Time: 37144.99s
+
+=== Evaluating at iteration 125000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:16<00:00, 24.11it/s]
+Val mIoU: 38.58%
+Per-class IoU:
+  road: 89.68%
+  sidewalk: 71.45%
+  building: 72.12%
+  wall: 27.44%
+  fence: 19.11%
+  pole: 43.66%
+  traffic light: 22.98%
+  traffic sign: 40.22%
+  vegetation: 75.91%
+  terrain: 27.70%
+  sky: 89.03%
+  person: 23.42%
+  rider: 6.12%
+  car: 67.40%
+  truck: 12.68%
+  bus: 11.86%
+  train: 15.41%
+  motorcycle: 7.61%
+  bicycle: 9.31%
+Iteration 125500/160000, Avg Loss: 0.0247, Time: 37307.85s
+Iteration 126000/160000, Avg Loss: 0.0247, Time: 37454.05s
+Iteration 126500/160000, Avg Loss: 0.0246, Time: 37601.21s
+Iteration 127000/160000, Avg Loss: 0.0246, Time: 37747.40s
+Iteration 127500/160000, Avg Loss: 0.0245, Time: 37893.58s
+Iteration 128000/160000, Avg Loss: 0.0245, Time: 38039.64s
+Iteration 128500/160000, Avg Loss: 0.0245, Time: 38186.90s
+Iteration 129000/160000, Avg Loss: 0.0244, Time: 38333.14s
+Iteration 129500/160000, Avg Loss: 0.0244, Time: 38479.27s
+Iteration 130000/160000, Avg Loss: 0.0243, Time: 38625.55s
+
+=== Evaluating at iteration 130000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:16<00:00, 24.13it/s]
+Val mIoU: 38.69%
+Per-class IoU:
+  road: 89.85%
+  sidewalk: 71.55%
+  building: 72.32%
+  wall: 27.32%
+  fence: 19.60%
+  pole: 43.28%
+  traffic light: 23.67%
+  traffic sign: 40.40%
+  vegetation: 76.25%
+  terrain: 28.07%
+  sky: 89.15%
+  person: 23.20%
+  rider: 5.64%
+  car: 66.38%
+  truck: 12.56%
+  bus: 14.13%
+  train: 15.33%
+  motorcycle: 7.07%
+  bicycle: 9.34%
+Iteration 130500/160000, Avg Loss: 0.0243, Time: 38789.50s
+Iteration 131000/160000, Avg Loss: 0.0242, Time: 38935.73s
+Iteration 131500/160000, Avg Loss: 0.0242, Time: 39081.86s
+Iteration 132000/160000, Avg Loss: 0.0241, Time: 39227.96s
+Iteration 132500/160000, Avg Loss: 0.0241, Time: 39375.08s
+Iteration 133000/160000, Avg Loss: 0.0240, Time: 39521.11s
+Iteration 133500/160000, Avg Loss: 0.0240, Time: 39667.50s
+Iteration 134000/160000, Avg Loss: 0.0239, Time: 39813.81s
+Iteration 134500/160000, Avg Loss: 0.0239, Time: 39961.00s
+Iteration 135000/160000, Avg Loss: 0.0238, Time: 40107.22s
+
+=== Evaluating at iteration 135000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.69it/s]
+Val mIoU: 38.57%
+Per-class IoU:
+  road: 89.75%
+  sidewalk: 71.71%
+  building: 72.25%
+  wall: 27.40%
+  fence: 19.98%
+  pole: 43.60%
+  traffic light: 22.38%
+  traffic sign: 38.51%
+  vegetation: 76.31%
+  terrain: 27.72%
+  sky: 89.08%
+  person: 22.31%
+  rider: 5.64%
+  car: 65.89%
+  truck: 11.89%
+  bus: 14.32%
+  train: 15.67%
+  motorcycle: 8.18%
+  bicycle: 10.19%
+Iteration 135500/160000, Avg Loss: 0.0238, Time: 40270.22s
+Iteration 136000/160000, Avg Loss: 0.0238, Time: 40416.29s
+Iteration 136500/160000, Avg Loss: 0.0237, Time: 40563.61s
+Iteration 137000/160000, Avg Loss: 0.0237, Time: 40709.88s
+Iteration 137500/160000, Avg Loss: 0.0236, Time: 40856.01s
+Iteration 138000/160000, Avg Loss: 0.0236, Time: 41001.93s
+Iteration 138500/160000, Avg Loss: 0.0235, Time: 41149.31s
+Iteration 139000/160000, Avg Loss: 0.0235, Time: 41295.62s
+Iteration 139500/160000, Avg Loss: 0.0235, Time: 41441.60s
+Iteration 140000/160000, Avg Loss: 0.0235, Time: 41587.84s
+
+=== Evaluating at iteration 140000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.31it/s]
+Val mIoU: 38.64%
+Per-class IoU:
+  road: 89.58%
+  sidewalk: 71.50%
+  building: 72.27%
+  wall: 26.80%
+  fence: 19.03%
+  pole: 42.96%
+  traffic light: 24.63%
+  traffic sign: 40.72%
+  vegetation: 75.99%
+  terrain: 28.13%
+  sky: 88.96%
+  person: 22.78%
+  rider: 5.89%
+  car: 66.30%
+  truck: 12.55%
+  bus: 12.23%
+  train: 14.19%
+  motorcycle: 8.97%
+  bicycle: 10.61%
+Iteration 140500/160000, Avg Loss: 0.0234, Time: 41752.13s
+Iteration 141000/160000, Avg Loss: 0.0234, Time: 41898.30s
+Iteration 141500/160000, Avg Loss: 0.0233, Time: 42044.41s
+Iteration 142000/160000, Avg Loss: 0.0233, Time: 42190.68s
+Iteration 142500/160000, Avg Loss: 0.0232, Time: 42337.93s
+Iteration 143000/160000, Avg Loss: 0.0232, Time: 42483.98s
+Iteration 143500/160000, Avg Loss: 0.0231, Time: 42630.09s
+Iteration 144000/160000, Avg Loss: 0.0231, Time: 42776.08s
+Iteration 144500/160000, Avg Loss: 0.0231, Time: 42923.32s
+Iteration 145000/160000, Avg Loss: 0.0230, Time: 43069.64s
+
+=== Evaluating at iteration 145000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.85it/s]
+Val mIoU: 38.46%
+Per-class IoU:
+  road: 89.82%
+  sidewalk: 71.75%
+  building: 72.30%
+  wall: 27.44%
+  fence: 19.33%
+  pole: 42.09%
+  traffic light: 22.47%
+  traffic sign: 39.29%
+  vegetation: 76.03%
+  terrain: 27.62%
+  sky: 89.21%
+  person: 22.29%
+  rider: 6.23%
+  car: 65.81%
+  truck: 13.32%
+  bus: 13.84%
+  train: 14.25%
+  motorcycle: 8.61%
+  bicycle: 9.01%
+Iteration 145500/160000, Avg Loss: 0.0230, Time: 43232.56s
+Iteration 146000/160000, Avg Loss: 0.0229, Time: 43378.79s
+Iteration 146500/160000, Avg Loss: 0.0229, Time: 43525.89s
+Iteration 147000/160000, Avg Loss: 0.0229, Time: 43671.90s
+Iteration 147500/160000, Avg Loss: 0.0229, Time: 43818.15s
+Iteration 148000/160000, Avg Loss: 0.0228, Time: 43964.24s
+Iteration 148500/160000, Avg Loss: 0.0228, Time: 44111.56s
+Iteration 149000/160000, Avg Loss: 0.0228, Time: 44257.68s
+Iteration 149500/160000, Avg Loss: 0.0227, Time: 44403.56s
+Iteration 150000/160000, Avg Loss: 0.0227, Time: 44549.68s
+
+=== Evaluating at iteration 150000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:16<00:00, 23.97it/s]
+Val mIoU: 38.58%
+Per-class IoU:
+  road: 89.90%
+  sidewalk: 71.92%
+  building: 72.47%
+  wall: 27.25%
+  fence: 19.42%
+  pole: 42.75%
+  traffic light: 23.01%
+  traffic sign: 40.09%
+  vegetation: 76.23%
+  terrain: 27.37%
+  sky: 89.15%
+  person: 21.87%
+  rider: 5.70%
+  car: 65.82%
+  truck: 12.94%
+  bus: 12.77%
+  train: 16.26%
+  motorcycle: 8.11%
+  bicycle: 9.97%
+Iteration 150500/160000, Avg Loss: 0.0226, Time: 44713.34s
+Iteration 151000/160000, Avg Loss: 0.0226, Time: 44859.62s
+Iteration 151500/160000, Avg Loss: 0.0226, Time: 45005.70s
+Iteration 152000/160000, Avg Loss: 0.0225, Time: 45151.81s
+Iteration 152500/160000, Avg Loss: 0.0225, Time: 45298.95s
+Iteration 153000/160000, Avg Loss: 0.0224, Time: 45445.24s
+Iteration 153500/160000, Avg Loss: 0.0224, Time: 45591.52s
+Iteration 154000/160000, Avg Loss: 0.0224, Time: 45737.60s
+Iteration 154500/160000, Avg Loss: 0.0223, Time: 45884.75s
+Iteration 155000/160000, Avg Loss: 0.0223, Time: 46030.88s
+
+=== Evaluating at iteration 155000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 23.07it/s]
+Val mIoU: 38.79%
+Per-class IoU:
+  road: 89.95%
+  sidewalk: 72.00%
+  building: 72.28%
+  wall: 27.43%
+  fence: 19.86%
+  pole: 43.28%
+  traffic light: 23.48%
+  traffic sign: 39.97%
+  vegetation: 75.88%
+  terrain: 27.25%
+  sky: 89.13%
+  person: 23.39%
+  rider: 6.83%
+  car: 66.72%
+  truck: 12.53%
+  bus: 13.21%
+  train: 16.54%
+  motorcycle: 7.84%
+  bicycle: 9.36%
+Iteration 155500/160000, Avg Loss: 0.0223, Time: 46194.39s
+Iteration 156000/160000, Avg Loss: 0.0222, Time: 46340.55s
+Iteration 156500/160000, Avg Loss: 0.0222, Time: 46487.74s
+Iteration 157000/160000, Avg Loss: 0.0222, Time: 46634.21s
+Iteration 157500/160000, Avg Loss: 0.0221, Time: 46780.31s
+Iteration 158000/160000, Avg Loss: 0.0221, Time: 46926.36s
+Iteration 158500/160000, Avg Loss: 0.0221, Time: 47073.79s
+Iteration 159000/160000, Avg Loss: 0.0220, Time: 47220.07s
+Iteration 159500/160000, Avg Loss: 0.0220, Time: 47366.08s
+Iteration 160000/160000, Avg Loss: 0.0219, Time: 47512.48s
+
+=== Evaluating at iteration 160000 ===
+Evaluating: 100%|█████████████████████████| 406/406 [00:17<00:00, 22.84it/s]
+Val mIoU: 38.19%
+Per-class IoU:
+  road: 89.80%
+  sidewalk: 71.53%
+  building: 72.34%
+  wall: 27.51%
+  fence: 19.87%
+  pole: 43.25%
+  traffic light: 23.11%
+  traffic sign: 40.30%
+  vegetation: 76.01%
+  terrain: 26.91%
+  sky: 89.08%
+  person: 21.74%
+  rider: 5.70%
+  car: 66.10%
+  truck: 11.97%
+  bus: 11.67%
+  train: 12.72%
+  motorcycle: 7.36%
+  bicycle: 8.60%
+
+Training complete. Best mIoU: 41.64%
+
+
