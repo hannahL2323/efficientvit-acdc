@@ -1,0 +1,951 @@
+(efficientvit) deng@deng-Precision-7920-Tower:~/efficientvit$ python acdc_project/finetune_acdc.py \
+    --data_path /home/deng/datasets/acdc_mmseg \
+    --model efficientvit-seg-b1-cityscapes \
+    --weight_url ./checkpoints/efficientvit_seg_b1_cityscapes.pt \
+    --batch_size 4 \
+    --iters 40000 \
+    --lr 1e-5 \
+    --crop_height 512 \
+    --crop_width 1024 \
+    --warmup_iters 1500 \
+    --weight_decay 0.01 \
+    --log_interval 100 \
+    --val_interval 2000 \
+    --save_dir ./checkpoints/acdc_full_v2
+Using device: cuda
+
+Loading pretrained model: efficientvit-seg-b1-cityscapes
+Model loaded successfully
+
+Loading ACDC dataset...
+Loading train set from /home/deng/datasets/acdc_mmseg/leftImg8bit/train
+ACDC train set: found 1600 samples
+Loading val set from /home/deng/datasets/acdc_mmseg/leftImg8bit/val
+ACDC val set: found 406 samples
+
+==================================================
+Training Configuration (V3 - Poly LR):
+  Model: efficientvit-seg-b1-cityscapes
+  LR schedule: Poly (power=0.9) + Warmup (1500 iters)
+  Initial LR: 1e-05
+  Total iters: 40000
+  Batch size: 4
+  Crop size: (512, 1024)
+  Weight decay: 0.01
+  Log interval: 100
+  Val interval: 2000
+  Checkpoint interval: 5000 iters
+  Save dir: ./checkpoints/acdc_full_v2
+==================================================
+
+Starting training for 40000 iterations...
+Initial LR: 0.000000
+Log interval: 100 iters
+Val interval: 2000 iters
+Checkpoint interval: 5000 iters
+Iter 100/40000 | Loss: 1.6967 | Avg Loss: 2.2509 | LR: 0.000001 | Time: 15.9s
+Iter 200/40000 | Loss: 2.3016 | Avg Loss: 2.1442 | LR: 0.000001 | Time: 29.7s
+Iter 300/40000 | Loss: 4.6808 | Avg Loss: 2.0618 | LR: 0.000002 | Time: 43.1s
+Iter 400/40000 | Loss: 1.3387 | Avg Loss: 1.9405 | LR: 0.000003 | Time: 56.3s
+Iter 500/40000 | Loss: 1.1009 | Avg Loss: 1.8528 | LR: 0.000003 | Time: 71.2s
+Iter 600/40000 | Loss: 1.4216 | Avg Loss: 1.7806 | LR: 0.000004 | Time: 84.7s
+Iter 700/40000 | Loss: 0.5144 | Avg Loss: 1.6872 | LR: 0.000005 | Time: 98.6s
+Iter 800/40000 | Loss: 1.0224 | Avg Loss: 1.6102 | LR: 0.000005 | Time: 111.5s
+Iter 900/40000 | Loss: 0.3697 | Avg Loss: 1.5318 | LR: 0.000006 | Time: 126.0s
+Iter 1000/40000 | Loss: 0.2452 | Avg Loss: 1.4700 | LR: 0.000007 | Time: 139.9s
+Iter 1100/40000 | Loss: 2.3395 | Avg Loss: 1.4124 | LR: 0.000007 | Time: 153.5s
+Iter 1200/40000 | Loss: 0.5260 | Avg Loss: 1.3604 | LR: 0.000008 | Time: 166.6s
+Iter 1300/40000 | Loss: 0.7116 | Avg Loss: 1.3060 | LR: 0.000009 | Time: 181.0s
+Iter 1400/40000 | Loss: 0.1847 | Avg Loss: 1.2591 | LR: 0.000009 | Time: 194.5s
+Iter 1500/40000 | Loss: 0.1568 | Avg Loss: 1.2156 | LR: 0.000010 | Time: 208.3s
+Iter 1600/40000 | Loss: 0.2973 | Avg Loss: 1.1777 | LR: 0.000010 | Time: 222.3s
+Iter 1700/40000 | Loss: 0.5147 | Avg Loss: 1.1434 | LR: 0.000010 | Time: 236.4s
+Iter 1800/40000 | Loss: 0.4141 | Avg Loss: 1.1090 | LR: 0.000010 | Time: 250.0s
+Iter 1900/40000 | Loss: 0.3239 | Avg Loss: 1.0783 | LR: 0.000010 | Time: 263.5s
+Iter 2000/40000 | Loss: 0.6052 | Avg Loss: 1.0506 | LR: 0.000010 | Time: 276.7s
+
+=== Evaluating at iteration 2000 ===
+Val mIoU: 54.08%
+
+Per-class IoU:
+  road           : 88.62%
+  sidewalk       : 58.29%
+  building       : 77.27%
+  wall           : 36.24%
+  fence          : 33.77%
+  pole           : 42.80%
+  traffic light  : 63.80%
+  traffic sign   : 48.98%
+  vegetation     : 80.48%
+  terrain        : 36.11%
+  sky            : 91.34%
+  person         : 42.85%
+  rider          : 22.38%
+  car            : 78.03%
+  truck          : 56.06%
+  bus            : 48.69%
+  train          : 64.16%
+  motorcycle     : 30.14%
+  bicycle        : 27.50%
+Best model saved! mIoU: 54.08%
+Iter 2100/40000 | Loss: 0.4747 | Avg Loss: 1.0259 | LR: 0.000010 | Time: 305.5s
+Iter 2200/40000 | Loss: 0.1095 | Avg Loss: 1.0012 | LR: 0.000010 | Time: 317.8s
+Iter 2300/40000 | Loss: 0.6799 | Avg Loss: 0.9787 | LR: 0.000010 | Time: 330.5s
+Iter 2400/40000 | Loss: 0.4630 | Avg Loss: 0.9589 | LR: 0.000010 | Time: 342.8s
+Iter 2500/40000 | Loss: 1.0536 | Avg Loss: 0.9397 | LR: 0.000010 | Time: 357.4s
+Iter 2600/40000 | Loss: 0.2126 | Avg Loss: 0.9233 | LR: 0.000010 | Time: 370.6s
+Iter 2700/40000 | Loss: 0.4700 | Avg Loss: 0.9064 | LR: 0.000010 | Time: 383.8s
+Iter 2800/40000 | Loss: 0.5536 | Avg Loss: 0.8904 | LR: 0.000010 | Time: 396.1s
+Iter 2900/40000 | Loss: 1.2830 | Avg Loss: 0.8744 | LR: 0.000010 | Time: 411.5s
+Iter 3000/40000 | Loss: 0.3290 | Avg Loss: 0.8592 | LR: 0.000010 | Time: 424.0s
+Iter 3100/40000 | Loss: 1.2384 | Avg Loss: 0.8456 | LR: 0.000010 | Time: 436.9s
+Iter 3200/40000 | Loss: 0.2786 | Avg Loss: 0.8326 | LR: 0.000010 | Time: 450.5s
+Iter 3300/40000 | Loss: 0.5634 | Avg Loss: 0.8200 | LR: 0.000010 | Time: 464.9s
+Iter 3400/40000 | Loss: 0.7371 | Avg Loss: 0.8080 | LR: 0.000010 | Time: 478.9s
+Iter 3500/40000 | Loss: 0.2779 | Avg Loss: 0.7964 | LR: 0.000010 | Time: 492.6s
+Iter 3600/40000 | Loss: 0.5590 | Avg Loss: 0.7853 | LR: 0.000010 | Time: 506.7s
+Iter 3700/40000 | Loss: 0.3463 | Avg Loss: 0.7751 | LR: 0.000009 | Time: 521.1s
+Iter 3800/40000 | Loss: 1.0682 | Avg Loss: 0.7653 | LR: 0.000009 | Time: 534.8s
+Iter 3900/40000 | Loss: 0.3555 | Avg Loss: 0.7567 | LR: 0.000009 | Time: 547.6s
+Iter 4000/40000 | Loss: 0.2493 | Avg Loss: 0.7466 | LR: 0.000009 | Time: 561.7s
+
+=== Evaluating at iteration 4000 ===
+Val mIoU: 58.91%
+
+Per-class IoU:
+  road           : 91.02%
+  sidewalk       : 65.44%
+  building       : 81.16%
+  wall           : 41.24%
+  fence          : 37.55%
+  pole           : 45.63%
+  traffic light  : 62.74%
+  traffic sign   : 51.19%
+  vegetation     : 81.92%
+  terrain        : 36.81%
+  sky            : 92.96%
+  person         : 48.71%
+  rider          : 28.69%
+  car            : 81.04%
+  truck          : 67.48%
+  bus            : 65.20%
+  train          : 74.91%
+  motorcycle     : 35.89%
+  bicycle        : 29.74%
+Best model saved! mIoU: 58.91%
+Iter 4100/40000 | Loss: 0.2940 | Avg Loss: 0.7374 | LR: 0.000009 | Time: 591.9s
+Iter 4200/40000 | Loss: 0.2546 | Avg Loss: 0.7289 | LR: 0.000009 | Time: 604.8s
+Iter 4300/40000 | Loss: 0.1295 | Avg Loss: 0.7198 | LR: 0.000009 | Time: 617.8s
+Iter 4400/40000 | Loss: 0.6665 | Avg Loss: 0.7119 | LR: 0.000009 | Time: 631.3s
+Iter 4500/40000 | Loss: 0.3882 | Avg Loss: 0.7036 | LR: 0.000009 | Time: 646.0s
+Iter 4600/40000 | Loss: 0.4496 | Avg Loss: 0.6963 | LR: 0.000009 | Time: 659.7s
+Iter 4700/40000 | Loss: 0.3208 | Avg Loss: 0.6899 | LR: 0.000009 | Time: 673.0s
+Iter 4800/40000 | Loss: 0.6069 | Avg Loss: 0.6819 | LR: 0.000009 | Time: 685.7s
+Iter 4900/40000 | Loss: 0.4680 | Avg Loss: 0.6761 | LR: 0.000009 | Time: 700.7s
+Iter 5000/40000 | Loss: 0.2346 | Avg Loss: 0.6697 | LR: 0.000009 | Time: 715.0s
+Periodic checkpoint saved at iter 5000
+Iter 5100/40000 | Loss: 0.2040 | Avg Loss: 0.6638 | LR: 0.000009 | Time: 728.5s
+Iter 5200/40000 | Loss: 0.6621 | Avg Loss: 0.6582 | LR: 0.000009 | Time: 742.2s
+Iter 5300/40000 | Loss: 0.2758 | Avg Loss: 0.6528 | LR: 0.000009 | Time: 756.3s
+Iter 5400/40000 | Loss: 0.2080 | Avg Loss: 0.6474 | LR: 0.000009 | Time: 770.4s
+Iter 5500/40000 | Loss: 0.5062 | Avg Loss: 0.6425 | LR: 0.000009 | Time: 783.5s
+Iter 5600/40000 | Loss: 0.8893 | Avg Loss: 0.6365 | LR: 0.000009 | Time: 797.0s
+Iter 5700/40000 | Loss: 0.2286 | Avg Loss: 0.6310 | LR: 0.000009 | Time: 812.9s
+Iter 5800/40000 | Loss: 0.3835 | Avg Loss: 0.6261 | LR: 0.000009 | Time: 827.2s
+Iter 5900/40000 | Loss: 0.3009 | Avg Loss: 0.6210 | LR: 0.000009 | Time: 840.8s
+Iter 6000/40000 | Loss: 0.2277 | Avg Loss: 0.6165 | LR: 0.000009 | Time: 854.9s
+
+=== Evaluating at iteration 6000 ===
+Val mIoU: 60.90%
+
+Per-class IoU:
+  road           : 91.13%
+  sidewalk       : 66.24%
+  building       : 82.63%
+  wall           : 44.69%
+  fence          : 38.68%
+  pole           : 50.12%
+  traffic light  : 63.79%
+  traffic sign   : 51.49%
+  vegetation     : 82.70%
+  terrain        : 38.66%
+  sky            : 93.18%
+  person         : 49.09%
+  rider          : 28.59%
+  car            : 79.44%
+  truck          : 70.91%
+  bus            : 78.74%
+  train          : 81.19%
+  motorcycle     : 34.71%
+  bicycle        : 31.16%
+Best model saved! mIoU: 60.90%
+Iter 6100/40000 | Loss: 0.2689 | Avg Loss: 0.6118 | LR: 0.000009 | Time: 885.5s
+Iter 6200/40000 | Loss: 0.1920 | Avg Loss: 0.6068 | LR: 0.000009 | Time: 898.9s
+Iter 6300/40000 | Loss: 0.1534 | Avg Loss: 0.6022 | LR: 0.000009 | Time: 913.1s
+Iter 6400/40000 | Loss: 0.2273 | Avg Loss: 0.5977 | LR: 0.000009 | Time: 927.2s
+Iter 6500/40000 | Loss: 0.1374 | Avg Loss: 0.5937 | LR: 0.000009 | Time: 942.1s
+Iter 6600/40000 | Loss: 0.5546 | Avg Loss: 0.5898 | LR: 0.000009 | Time: 955.5s
+Iter 6700/40000 | Loss: 0.3134 | Avg Loss: 0.5857 | LR: 0.000009 | Time: 969.4s
+Iter 6800/40000 | Loss: 0.4537 | Avg Loss: 0.5820 | LR: 0.000009 | Time: 983.9s
+Iter 6900/40000 | Loss: 0.2168 | Avg Loss: 0.5783 | LR: 0.000009 | Time: 998.3s
+Iter 7000/40000 | Loss: 0.2127 | Avg Loss: 0.5741 | LR: 0.000009 | Time: 1012.2s
+Iter 7100/40000 | Loss: 0.1473 | Avg Loss: 0.5710 | LR: 0.000009 | Time: 1027.0s
+Iter 7200/40000 | Loss: 0.2106 | Avg Loss: 0.5673 | LR: 0.000009 | Time: 1039.9s
+Iter 7300/40000 | Loss: 0.1605 | Avg Loss: 0.5636 | LR: 0.000009 | Time: 1055.0s
+Iter 7400/40000 | Loss: 1.0769 | Avg Loss: 0.5602 | LR: 0.000009 | Time: 1069.0s
+Iter 7500/40000 | Loss: 0.4424 | Avg Loss: 0.5571 | LR: 0.000009 | Time: 1083.3s
+Iter 7600/40000 | Loss: 0.2359 | Avg Loss: 0.5538 | LR: 0.000009 | Time: 1096.6s
+Iter 7700/40000 | Loss: 0.2517 | Avg Loss: 0.5505 | LR: 0.000009 | Time: 1111.0s
+Iter 7800/40000 | Loss: 0.2620 | Avg Loss: 0.5473 | LR: 0.000009 | Time: 1124.0s
+Iter 7900/40000 | Loss: 0.1543 | Avg Loss: 0.5442 | LR: 0.000008 | Time: 1137.6s
+Iter 8000/40000 | Loss: 0.3177 | Avg Loss: 0.5411 | LR: 0.000008 | Time: 1150.6s
+
+=== Evaluating at iteration 8000 ===
+Val mIoU: 62.43%
+
+Per-class IoU:
+  road           : 91.61%
+  sidewalk       : 68.20%
+  building       : 82.98%
+  wall           : 44.31%
+  fence          : 39.92%
+  pole           : 51.45%
+  traffic light  : 64.36%
+  traffic sign   : 52.09%
+  vegetation     : 83.16%
+  terrain        : 40.35%
+  sky            : 93.45%
+  person         : 49.84%
+  rider          : 30.90%
+  car            : 81.28%
+  truck          : 72.21%
+  bus            : 82.40%
+  train          : 81.86%
+  motorcycle     : 37.94%
+  bicycle        : 37.83%
+Best model saved! mIoU: 62.43%
+Iter 8100/40000 | Loss: 0.2141 | Avg Loss: 0.5385 | LR: 0.000008 | Time: 1182.2s
+Iter 8200/40000 | Loss: 0.2473 | Avg Loss: 0.5354 | LR: 0.000008 | Time: 1194.7s
+Iter 8300/40000 | Loss: 0.2176 | Avg Loss: 0.5323 | LR: 0.000008 | Time: 1207.9s
+Iter 8400/40000 | Loss: 0.2620 | Avg Loss: 0.5300 | LR: 0.000008 | Time: 1222.2s
+Iter 8500/40000 | Loss: 0.3553 | Avg Loss: 0.5270 | LR: 0.000008 | Time: 1237.3s
+Iter 8600/40000 | Loss: 0.2415 | Avg Loss: 0.5242 | LR: 0.000008 | Time: 1250.8s
+Iter 8700/40000 | Loss: 0.2116 | Avg Loss: 0.5215 | LR: 0.000008 | Time: 1264.1s
+Iter 8800/40000 | Loss: 0.7574 | Avg Loss: 0.5188 | LR: 0.000008 | Time: 1277.6s
+Iter 8900/40000 | Loss: 0.2321 | Avg Loss: 0.5165 | LR: 0.000008 | Time: 1291.8s
+Iter 9000/40000 | Loss: 0.2616 | Avg Loss: 0.5141 | LR: 0.000008 | Time: 1304.8s
+Iter 9100/40000 | Loss: 0.5625 | Avg Loss: 0.5118 | LR: 0.000008 | Time: 1317.7s
+Iter 9200/40000 | Loss: 0.1894 | Avg Loss: 0.5093 | LR: 0.000008 | Time: 1331.0s
+Iter 9300/40000 | Loss: 0.1017 | Avg Loss: 0.5065 | LR: 0.000008 | Time: 1344.9s
+Iter 9400/40000 | Loss: 0.2331 | Avg Loss: 0.5040 | LR: 0.000008 | Time: 1358.9s
+Iter 9500/40000 | Loss: 0.1554 | Avg Loss: 0.5017 | LR: 0.000008 | Time: 1372.6s
+Iter 9600/40000 | Loss: 0.4816 | Avg Loss: 0.4996 | LR: 0.000008 | Time: 1385.5s
+Iter 9700/40000 | Loss: 0.1428 | Avg Loss: 0.4970 | LR: 0.000008 | Time: 1399.7s
+Iter 9800/40000 | Loss: 0.2510 | Avg Loss: 0.4949 | LR: 0.000008 | Time: 1413.2s
+Iter 9900/40000 | Loss: 0.1404 | Avg Loss: 0.4927 | LR: 0.000008 | Time: 1427.1s
+Iter 10000/40000 | Loss: 0.3618 | Avg Loss: 0.4907 | LR: 0.000008 | Time: 1440.2s
+
+=== Evaluating at iteration 10000 ===
+Val mIoU: 63.68%
+
+Per-class IoU:
+  road           : 92.12%
+  sidewalk       : 69.73%
+  building       : 83.58%
+  wall           : 46.70%
+  fence          : 40.98%
+  pole           : 52.75%
+  traffic light  : 65.46%
+  traffic sign   : 53.29%
+  vegetation     : 83.47%
+  terrain        : 42.96%
+  sky            : 93.74%
+  person         : 51.57%
+  rider          : 33.18%
+  car            : 82.02%
+  truck          : 73.19%
+  bus            : 84.90%
+  train          : 85.06%
+  motorcycle     : 38.12%
+  bicycle        : 37.18%
+Best model saved! mIoU: 63.68%
+Periodic checkpoint saved at iter 10000
+Iter 10100/40000 | Loss: 0.1730 | Avg Loss: 0.4885 | LR: 0.000008 | Time: 1471.4s
+Iter 10200/40000 | Loss: 0.3768 | Avg Loss: 0.4864 | LR: 0.000008 | Time: 1485.0s
+Iter 10300/40000 | Loss: 0.1072 | Avg Loss: 0.4844 | LR: 0.000008 | Time: 1499.1s
+Iter 10400/40000 | Loss: 0.2423 | Avg Loss: 0.4826 | LR: 0.000008 | Time: 1513.3s
+Iter 10500/40000 | Loss: 0.2011 | Avg Loss: 0.4805 | LR: 0.000008 | Time: 1528.6s
+Iter 10600/40000 | Loss: 0.2433 | Avg Loss: 0.4785 | LR: 0.000008 | Time: 1541.9s
+Iter 10700/40000 | Loss: 0.1356 | Avg Loss: 0.4765 | LR: 0.000008 | Time: 1555.8s
+Iter 10800/40000 | Loss: 0.2149 | Avg Loss: 0.4743 | LR: 0.000008 | Time: 1568.5s
+Iter 10900/40000 | Loss: 0.1781 | Avg Loss: 0.4722 | LR: 0.000008 | Time: 1582.8s
+Iter 11000/40000 | Loss: 0.2660 | Avg Loss: 0.4703 | LR: 0.000008 | Time: 1596.5s
+Iter 11100/40000 | Loss: 0.1241 | Avg Loss: 0.4684 | LR: 0.000008 | Time: 1609.4s
+Iter 11200/40000 | Loss: 0.5403 | Avg Loss: 0.4666 | LR: 0.000008 | Time: 1623.2s
+Iter 11300/40000 | Loss: 0.3931 | Avg Loss: 0.4648 | LR: 0.000008 | Time: 1638.0s
+Iter 11400/40000 | Loss: 0.2469 | Avg Loss: 0.4632 | LR: 0.000008 | Time: 1651.6s
+Iter 11500/40000 | Loss: 0.3221 | Avg Loss: 0.4615 | LR: 0.000008 | Time: 1665.1s
+Iter 11600/40000 | Loss: 0.2729 | Avg Loss: 0.4600 | LR: 0.000008 | Time: 1677.9s
+Iter 11700/40000 | Loss: 0.2411 | Avg Loss: 0.4585 | LR: 0.000008 | Time: 1692.6s
+Iter 11800/40000 | Loss: 0.1408 | Avg Loss: 0.4570 | LR: 0.000008 | Time: 1706.2s
+Iter 11900/40000 | Loss: 0.3070 | Avg Loss: 0.4551 | LR: 0.000008 | Time: 1719.8s
+Iter 12000/40000 | Loss: 0.3172 | Avg Loss: 0.4538 | LR: 0.000008 | Time: 1732.6s
+
+=== Evaluating at iteration 12000 ===
+Val mIoU: 64.16%
+
+Per-class IoU:
+  road           : 92.50%
+  sidewalk       : 71.01%
+  building       : 83.88%
+  wall           : 47.25%
+  fence          : 41.37%
+  pole           : 52.40%
+  traffic light  : 66.51%
+  traffic sign   : 52.51%
+  vegetation     : 83.68%
+  terrain        : 43.78%
+  sky            : 93.71%
+  person         : 50.69%
+  rider          : 30.79%
+  car            : 82.62%
+  truck          : 74.68%
+  bus            : 86.20%
+  train          : 85.84%
+  motorcycle     : 40.31%
+  bicycle        : 39.26%
+Best model saved! mIoU: 64.16%
+Iter 12100/40000 | Loss: 0.6982 | Avg Loss: 0.4522 | LR: 0.000007 | Time: 1763.4s
+Iter 12200/40000 | Loss: 0.2417 | Avg Loss: 0.4505 | LR: 0.000007 | Time: 1776.6s
+Iter 12300/40000 | Loss: 0.2457 | Avg Loss: 0.4489 | LR: 0.000007 | Time: 1789.9s
+Iter 12400/40000 | Loss: 0.2019 | Avg Loss: 0.4473 | LR: 0.000007 | Time: 1802.9s
+Iter 12500/40000 | Loss: 0.1018 | Avg Loss: 0.4458 | LR: 0.000007 | Time: 1818.2s
+Iter 12600/40000 | Loss: 0.2448 | Avg Loss: 0.4442 | LR: 0.000007 | Time: 1832.1s
+Iter 12700/40000 | Loss: 0.1415 | Avg Loss: 0.4427 | LR: 0.000007 | Time: 1845.6s
+Iter 12800/40000 | Loss: 0.1367 | Avg Loss: 0.4412 | LR: 0.000007 | Time: 1859.4s
+Iter 12900/40000 | Loss: 0.1416 | Avg Loss: 0.4397 | LR: 0.000007 | Time: 1874.2s
+Iter 13000/40000 | Loss: 0.1912 | Avg Loss: 0.4382 | LR: 0.000007 | Time: 1887.3s
+Iter 13100/40000 | Loss: 0.1805 | Avg Loss: 0.4366 | LR: 0.000007 | Time: 1900.5s
+Iter 13200/40000 | Loss: 0.1573 | Avg Loss: 0.4352 | LR: 0.000007 | Time: 1913.8s
+Iter 13300/40000 | Loss: 0.2964 | Avg Loss: 0.4340 | LR: 0.000007 | Time: 1927.8s
+Iter 13400/40000 | Loss: 0.2648 | Avg Loss: 0.4327 | LR: 0.000007 | Time: 1941.6s
+Iter 13500/40000 | Loss: 0.2243 | Avg Loss: 0.4312 | LR: 0.000007 | Time: 1954.9s
+Iter 13600/40000 | Loss: 0.1644 | Avg Loss: 0.4299 | LR: 0.000007 | Time: 1968.2s
+Iter 13700/40000 | Loss: 0.1268 | Avg Loss: 0.4287 | LR: 0.000007 | Time: 1982.6s
+Iter 13800/40000 | Loss: 0.2683 | Avg Loss: 0.4274 | LR: 0.000007 | Time: 1996.9s
+Iter 13900/40000 | Loss: 0.1893 | Avg Loss: 0.4263 | LR: 0.000007 | Time: 2010.6s
+Iter 14000/40000 | Loss: 0.1240 | Avg Loss: 0.4251 | LR: 0.000007 | Time: 2023.7s
+
+=== Evaluating at iteration 14000 ===
+Val mIoU: 64.78%
+
+Per-class IoU:
+  road           : 92.47%
+  sidewalk       : 71.07%
+  building       : 84.13%
+  wall           : 48.52%
+  fence          : 41.95%
+  pole           : 53.60%
+  traffic light  : 65.87%
+  traffic sign   : 53.41%
+  vegetation     : 83.88%
+  terrain        : 45.34%
+  sky            : 93.80%
+  person         : 51.27%
+  rider          : 33.37%
+  car            : 82.73%
+  truck          : 72.86%
+  bus            : 88.09%
+  train          : 86.00%
+  motorcycle     : 41.74%
+  bicycle        : 40.73%
+Best model saved! mIoU: 64.78%
+Iter 14100/40000 | Loss: 0.1690 | Avg Loss: 0.4237 | LR: 0.000007 | Time: 2054.5s
+Iter 14200/40000 | Loss: 0.2695 | Avg Loss: 0.4223 | LR: 0.000007 | Time: 2068.4s
+Iter 14300/40000 | Loss: 0.1181 | Avg Loss: 0.4211 | LR: 0.000007 | Time: 2082.6s
+Iter 14400/40000 | Loss: 0.2617 | Avg Loss: 0.4196 | LR: 0.000007 | Time: 2095.6s
+Iter 14500/40000 | Loss: 0.1454 | Avg Loss: 0.4185 | LR: 0.000007 | Time: 2109.8s
+Iter 14600/40000 | Loss: 0.1606 | Avg Loss: 0.4173 | LR: 0.000007 | Time: 2123.6s
+Iter 14700/40000 | Loss: 0.1127 | Avg Loss: 0.4160 | LR: 0.000007 | Time: 2137.2s
+Iter 14800/40000 | Loss: 0.1757 | Avg Loss: 0.4148 | LR: 0.000007 | Time: 2150.6s
+Iter 14900/40000 | Loss: 0.1039 | Avg Loss: 0.4136 | LR: 0.000007 | Time: 2165.4s
+Iter 15000/40000 | Loss: 0.1403 | Avg Loss: 0.4124 | LR: 0.000007 | Time: 2179.4s
+Periodic checkpoint saved at iter 15000
+Iter 15100/40000 | Loss: 0.3205 | Avg Loss: 0.4112 | LR: 0.000007 | Time: 2192.7s
+Iter 15200/40000 | Loss: 0.1690 | Avg Loss: 0.4101 | LR: 0.000007 | Time: 2205.6s
+Iter 15300/40000 | Loss: 0.2088 | Avg Loss: 0.4092 | LR: 0.000007 | Time: 2220.1s
+Iter 15400/40000 | Loss: 0.3076 | Avg Loss: 0.4080 | LR: 0.000007 | Time: 2233.9s
+Iter 15500/40000 | Loss: 0.2093 | Avg Loss: 0.4069 | LR: 0.000007 | Time: 2248.7s
+Iter 15600/40000 | Loss: 0.0802 | Avg Loss: 0.4062 | LR: 0.000007 | Time: 2261.6s
+Iter 15700/40000 | Loss: 0.0899 | Avg Loss: 0.4050 | LR: 0.000007 | Time: 2276.3s
+Iter 15800/40000 | Loss: 0.1399 | Avg Loss: 0.4040 | LR: 0.000007 | Time: 2289.8s
+Iter 15900/40000 | Loss: 0.2039 | Avg Loss: 0.4029 | LR: 0.000007 | Time: 2303.6s
+Iter 16000/40000 | Loss: 0.1863 | Avg Loss: 0.4020 | LR: 0.000007 | Time: 2317.5s
+
+=== Evaluating at iteration 16000 ===
+Val mIoU: 65.01%
+
+Per-class IoU:
+  road           : 92.28%
+  sidewalk       : 70.71%
+  building       : 84.35%
+  wall           : 49.00%
+  fence          : 43.01%
+  pole           : 53.36%
+  traffic light  : 66.49%
+  traffic sign   : 54.42%
+  vegetation     : 84.15%
+  terrain        : 45.34%
+  sky            : 94.10%
+  person         : 52.73%
+  rider          : 34.52%
+  car            : 83.02%
+  truck          : 73.76%
+  bus            : 86.44%
+  train          : 86.23%
+  motorcycle     : 40.79%
+  bicycle        : 40.60%
+Best model saved! mIoU: 65.01%
+Iter 16100/40000 | Loss: 0.2061 | Avg Loss: 0.4010 | LR: 0.000007 | Time: 2346.9s
+Iter 16200/40000 | Loss: 0.3500 | Avg Loss: 0.4000 | LR: 0.000006 | Time: 2360.4s
+Iter 16300/40000 | Loss: 0.2622 | Avg Loss: 0.3989 | LR: 0.000006 | Time: 2374.4s
+Iter 16400/40000 | Loss: 0.3799 | Avg Loss: 0.3980 | LR: 0.000006 | Time: 2387.9s
+Iter 16500/40000 | Loss: 0.1913 | Avg Loss: 0.3970 | LR: 0.000006 | Time: 2401.9s
+Iter 16600/40000 | Loss: 0.2594 | Avg Loss: 0.3962 | LR: 0.000006 | Time: 2415.3s
+Iter 16700/40000 | Loss: 0.4380 | Avg Loss: 0.3955 | LR: 0.000006 | Time: 2429.3s
+Iter 16800/40000 | Loss: 0.1485 | Avg Loss: 0.3944 | LR: 0.000006 | Time: 2442.6s
+Iter 16900/40000 | Loss: 0.7837 | Avg Loss: 0.3937 | LR: 0.000006 | Time: 2457.7s
+Iter 17000/40000 | Loss: 0.1475 | Avg Loss: 0.3926 | LR: 0.000006 | Time: 2471.1s
+Iter 17100/40000 | Loss: 0.1630 | Avg Loss: 0.3917 | LR: 0.000006 | Time: 2484.8s
+Iter 17200/40000 | Loss: 0.2174 | Avg Loss: 0.3908 | LR: 0.000006 | Time: 2498.7s
+Iter 17300/40000 | Loss: 0.1750 | Avg Loss: 0.3899 | LR: 0.000006 | Time: 2513.3s
+Iter 17400/40000 | Loss: 0.2601 | Avg Loss: 0.3890 | LR: 0.000006 | Time: 2526.9s
+Iter 17500/40000 | Loss: 0.4336 | Avg Loss: 0.3882 | LR: 0.000006 | Time: 2540.6s
+Iter 17600/40000 | Loss: 0.1032 | Avg Loss: 0.3872 | LR: 0.000006 | Time: 2553.9s
+Iter 17700/40000 | Loss: 0.2451 | Avg Loss: 0.3862 | LR: 0.000006 | Time: 2568.2s
+Iter 17800/40000 | Loss: 0.3873 | Avg Loss: 0.3853 | LR: 0.000006 | Time: 2581.9s
+Iter 17900/40000 | Loss: 0.2324 | Avg Loss: 0.3845 | LR: 0.000006 | Time: 2596.2s
+Iter 18000/40000 | Loss: 0.1861 | Avg Loss: 0.3837 | LR: 0.000006 | Time: 2609.8s
+
+=== Evaluating at iteration 18000 ===
+Val mIoU: 64.91%
+
+Per-class IoU:
+  road           : 92.74%
+  sidewalk       : 71.63%
+  building       : 84.32%
+  wall           : 48.70%
+  fence          : 42.44%
+  pole           : 53.01%
+  traffic light  : 66.28%
+  traffic sign   : 54.51%
+  vegetation     : 83.64%
+  terrain        : 44.89%
+  sky            : 93.93%
+  person         : 52.74%
+  rider          : 32.97%
+  car            : 83.44%
+  truck          : 74.33%
+  bus            : 86.39%
+  train          : 86.66%
+  motorcycle     : 40.91%
+  bicycle        : 39.78%
+Iter 18100/40000 | Loss: 0.1751 | Avg Loss: 0.3829 | LR: 0.000006 | Time: 2639.3s
+Iter 18200/40000 | Loss: 0.9151 | Avg Loss: 0.3821 | LR: 0.000006 | Time: 2652.8s
+Iter 18300/40000 | Loss: 0.0593 | Avg Loss: 0.3812 | LR: 0.000006 | Time: 2666.2s
+Iter 18400/40000 | Loss: 0.2012 | Avg Loss: 0.3806 | LR: 0.000006 | Time: 2679.2s
+Iter 18500/40000 | Loss: 0.2234 | Avg Loss: 0.3797 | LR: 0.000006 | Time: 2694.6s
+Iter 18600/40000 | Loss: 0.1327 | Avg Loss: 0.3789 | LR: 0.000006 | Time: 2707.9s
+Iter 18700/40000 | Loss: 0.7438 | Avg Loss: 0.3780 | LR: 0.000006 | Time: 2721.2s
+Iter 18800/40000 | Loss: 0.2051 | Avg Loss: 0.3771 | LR: 0.000006 | Time: 2734.2s
+Iter 18900/40000 | Loss: 0.1638 | Avg Loss: 0.3764 | LR: 0.000006 | Time: 2748.6s
+Iter 19000/40000 | Loss: 0.0894 | Avg Loss: 0.3755 | LR: 0.000006 | Time: 2762.7s
+Iter 19100/40000 | Loss: 0.2676 | Avg Loss: 0.3749 | LR: 0.000006 | Time: 2777.1s
+Iter 19200/40000 | Loss: 0.2004 | Avg Loss: 0.3741 | LR: 0.000006 | Time: 2790.6s
+Iter 19300/40000 | Loss: 0.2990 | Avg Loss: 0.3734 | LR: 0.000006 | Time: 2806.2s
+Iter 19400/40000 | Loss: 0.1954 | Avg Loss: 0.3728 | LR: 0.000006 | Time: 2820.4s
+Iter 19500/40000 | Loss: 0.1266 | Avg Loss: 0.3719 | LR: 0.000006 | Time: 2833.8s
+Iter 19600/40000 | Loss: 0.2600 | Avg Loss: 0.3711 | LR: 0.000006 | Time: 2848.0s
+Iter 19700/40000 | Loss: 0.2736 | Avg Loss: 0.3704 | LR: 0.000006 | Time: 2862.3s
+Iter 19800/40000 | Loss: 0.2169 | Avg Loss: 0.3696 | LR: 0.000006 | Time: 2875.6s
+Iter 19900/40000 | Loss: 0.0919 | Avg Loss: 0.3689 | LR: 0.000006 | Time: 2888.9s
+Iter 20000/40000 | Loss: 0.1421 | Avg Loss: 0.3681 | LR: 0.000006 | Time: 2902.3s
+
+=== Evaluating at iteration 20000 ===
+Val mIoU: 65.58%
+
+Per-class IoU:
+  road           : 92.94%
+  sidewalk       : 72.34%
+  building       : 84.43%
+  wall           : 49.35%
+  fence          : 43.60%
+  pole           : 54.07%
+  traffic light  : 67.18%
+  traffic sign   : 54.41%
+  vegetation     : 84.04%
+  terrain        : 45.92%
+  sky            : 94.11%
+  person         : 53.35%
+  rider          : 32.64%
+  car            : 83.60%
+  truck          : 74.75%
+  bus            : 87.67%
+  train          : 87.26%
+  motorcycle     : 42.14%
+  bicycle        : 42.21%
+Best model saved! mIoU: 65.58%
+Periodic checkpoint saved at iter 20000
+Iter 20100/40000 | Loss: 0.1819 | Avg Loss: 0.3675 | LR: 0.000006 | Time: 2932.7s
+Iter 20200/40000 | Loss: 0.2410 | Avg Loss: 0.3669 | LR: 0.000005 | Time: 2946.5s
+Iter 20300/40000 | Loss: 0.0899 | Avg Loss: 0.3661 | LR: 0.000005 | Time: 2959.7s
+Iter 20400/40000 | Loss: 0.2603 | Avg Loss: 0.3655 | LR: 0.000005 | Time: 2972.6s
+Iter 20500/40000 | Loss: 0.2422 | Avg Loss: 0.3647 | LR: 0.000005 | Time: 2987.1s
+Iter 20600/40000 | Loss: 0.1861 | Avg Loss: 0.3641 | LR: 0.000005 | Time: 3001.3s
+Iter 20700/40000 | Loss: 0.0997 | Avg Loss: 0.3634 | LR: 0.000005 | Time: 3015.2s
+Iter 20800/40000 | Loss: 0.2171 | Avg Loss: 0.3627 | LR: 0.000005 | Time: 3028.5s
+Iter 20900/40000 | Loss: 0.5850 | Avg Loss: 0.3620 | LR: 0.000005 | Time: 3043.0s
+Iter 21000/40000 | Loss: 0.1291 | Avg Loss: 0.3613 | LR: 0.000005 | Time: 3056.9s
+Iter 21100/40000 | Loss: 0.6003 | Avg Loss: 0.3607 | LR: 0.000005 | Time: 3071.8s
+Iter 21200/40000 | Loss: 0.2086 | Avg Loss: 0.3601 | LR: 0.000005 | Time: 3084.8s
+Iter 21300/40000 | Loss: 0.1401 | Avg Loss: 0.3594 | LR: 0.000005 | Time: 3098.7s
+Iter 21400/40000 | Loss: 0.0944 | Avg Loss: 0.3588 | LR: 0.000005 | Time: 3112.8s
+Iter 21500/40000 | Loss: 0.2313 | Avg Loss: 0.3581 | LR: 0.000005 | Time: 3126.4s
+Iter 21600/40000 | Loss: 0.7599 | Avg Loss: 0.3576 | LR: 0.000005 | Time: 3140.1s
+Iter 21700/40000 | Loss: 0.2992 | Avg Loss: 0.3570 | LR: 0.000005 | Time: 3155.0s
+Iter 21800/40000 | Loss: 0.2106 | Avg Loss: 0.3563 | LR: 0.000005 | Time: 3167.7s
+Iter 21900/40000 | Loss: 0.1698 | Avg Loss: 0.3559 | LR: 0.000005 | Time: 3181.1s
+Iter 22000/40000 | Loss: 1.1598 | Avg Loss: 0.3552 | LR: 0.000005 | Time: 3194.2s
+
+=== Evaluating at iteration 22000 ===
+Val mIoU: 65.50%
+
+Per-class IoU:
+  road           : 92.96%
+  sidewalk       : 72.71%
+  building       : 84.64%
+  wall           : 49.71%
+  fence          : 43.80%
+  pole           : 54.24%
+  traffic light  : 67.46%
+  traffic sign   : 54.35%
+  vegetation     : 84.32%
+  terrain        : 46.22%
+  sky            : 94.22%
+  person         : 52.18%
+  rider          : 30.75%
+  car            : 82.76%
+  truck          : 75.16%
+  bus            : 88.35%
+  train          : 87.05%
+  motorcycle     : 41.35%
+  bicycle        : 42.35%
+Iter 22100/40000 | Loss: 0.1628 | Avg Loss: 0.3546 | LR: 0.000005 | Time: 3224.5s
+Iter 22200/40000 | Loss: 0.2942 | Avg Loss: 0.3541 | LR: 0.000005 | Time: 3237.2s
+Iter 22300/40000 | Loss: 0.0968 | Avg Loss: 0.3534 | LR: 0.000005 | Time: 3250.2s
+Iter 22400/40000 | Loss: 0.1195 | Avg Loss: 0.3528 | LR: 0.000005 | Time: 3263.1s
+Iter 22500/40000 | Loss: 0.1950 | Avg Loss: 0.3522 | LR: 0.000005 | Time: 3278.5s
+Iter 22600/40000 | Loss: 0.3350 | Avg Loss: 0.3516 | LR: 0.000005 | Time: 3291.1s
+Iter 22700/40000 | Loss: 0.2769 | Avg Loss: 0.3510 | LR: 0.000005 | Time: 3304.5s
+Iter 22800/40000 | Loss: 0.2116 | Avg Loss: 0.3504 | LR: 0.000005 | Time: 3317.5s
+Iter 22900/40000 | Loss: 0.2173 | Avg Loss: 0.3498 | LR: 0.000005 | Time: 3332.6s
+Iter 23000/40000 | Loss: 0.2118 | Avg Loss: 0.3493 | LR: 0.000005 | Time: 3346.2s
+Iter 23100/40000 | Loss: 0.3406 | Avg Loss: 0.3488 | LR: 0.000005 | Time: 3359.4s
+Iter 23200/40000 | Loss: 0.1963 | Avg Loss: 0.3483 | LR: 0.000005 | Time: 3373.4s
+Iter 23300/40000 | Loss: 0.2866 | Avg Loss: 0.3478 | LR: 0.000005 | Time: 3387.3s
+Iter 23400/40000 | Loss: 0.5359 | Avg Loss: 0.3472 | LR: 0.000005 | Time: 3399.7s
+Iter 23500/40000 | Loss: 0.1365 | Avg Loss: 0.3466 | LR: 0.000005 | Time: 3413.2s
+Iter 23600/40000 | Loss: 0.3833 | Avg Loss: 0.3461 | LR: 0.000005 | Time: 3426.6s
+Iter 23700/40000 | Loss: 0.3139 | Avg Loss: 0.3456 | LR: 0.000005 | Time: 3440.8s
+Iter 23800/40000 | Loss: 0.1063 | Avg Loss: 0.3451 | LR: 0.000005 | Time: 3454.2s
+Iter 23900/40000 | Loss: 0.1386 | Avg Loss: 0.3448 | LR: 0.000005 | Time: 3467.9s
+Iter 24000/40000 | Loss: 0.2302 | Avg Loss: 0.3443 | LR: 0.000005 | Time: 3480.3s
+
+=== Evaluating at iteration 24000 ===
+Val mIoU: 65.60%
+
+Per-class IoU:
+  road           : 92.98%
+  sidewalk       : 72.53%
+  building       : 84.62%
+  wall           : 50.40%
+  fence          : 43.48%
+  pole           : 54.82%
+  traffic light  : 67.32%
+  traffic sign   : 54.74%
+  vegetation     : 84.12%
+  terrain        : 46.22%
+  sky            : 94.11%
+  person         : 52.39%
+  rider          : 30.17%
+  car            : 83.54%
+  truck          : 74.96%
+  bus            : 89.65%
+  train          : 87.21%
+  motorcycle     : 41.67%
+  bicycle        : 41.54%
+Best model saved! mIoU: 65.60%
+Iter 24100/40000 | Loss: 0.1262 | Avg Loss: 0.3439 | LR: 0.000005 | Time: 3511.0s
+Iter 24200/40000 | Loss: 0.2398 | Avg Loss: 0.3434 | LR: 0.000004 | Time: 3524.5s
+Iter 24300/40000 | Loss: 0.0764 | Avg Loss: 0.3429 | LR: 0.000004 | Time: 3538.3s
+Iter 24400/40000 | Loss: 0.1131 | Avg Loss: 0.3424 | LR: 0.000004 | Time: 3551.5s
+Iter 24500/40000 | Loss: 0.0856 | Avg Loss: 0.3419 | LR: 0.000004 | Time: 3565.8s
+Iter 24600/40000 | Loss: 0.1155 | Avg Loss: 0.3413 | LR: 0.000004 | Time: 3578.5s
+Iter 24700/40000 | Loss: 0.1001 | Avg Loss: 0.3408 | LR: 0.000004 | Time: 3591.7s
+Iter 24800/40000 | Loss: 0.2663 | Avg Loss: 0.3403 | LR: 0.000004 | Time: 3604.7s
+Iter 24900/40000 | Loss: 0.3602 | Avg Loss: 0.3398 | LR: 0.000004 | Time: 3619.4s
+Iter 25000/40000 | Loss: 0.2486 | Avg Loss: 0.3394 | LR: 0.000004 | Time: 3632.6s
+Periodic checkpoint saved at iter 25000
+Iter 25100/40000 | Loss: 0.2876 | Avg Loss: 0.3389 | LR: 0.000004 | Time: 3645.8s
+Iter 25200/40000 | Loss: 0.1404 | Avg Loss: 0.3384 | LR: 0.000004 | Time: 3659.5s
+Iter 25300/40000 | Loss: 0.4817 | Avg Loss: 0.3379 | LR: 0.000004 | Time: 3673.6s
+Iter 25400/40000 | Loss: 0.3843 | Avg Loss: 0.3374 | LR: 0.000004 | Time: 3687.2s
+Iter 25500/40000 | Loss: 0.1243 | Avg Loss: 0.3370 | LR: 0.000004 | Time: 3700.3s
+Iter 25600/40000 | Loss: 0.1845 | Avg Loss: 0.3365 | LR: 0.000004 | Time: 3713.3s
+Iter 25700/40000 | Loss: 0.1021 | Avg Loss: 0.3361 | LR: 0.000004 | Time: 3727.3s
+Iter 25800/40000 | Loss: 0.3733 | Avg Loss: 0.3356 | LR: 0.000004 | Time: 3740.0s
+Iter 25900/40000 | Loss: 0.1255 | Avg Loss: 0.3351 | LR: 0.000004 | Time: 3752.6s
+Iter 26000/40000 | Loss: 0.2937 | Avg Loss: 0.3346 | LR: 0.000004 | Time: 3765.9s
+
+=== Evaluating at iteration 26000 ===
+Val mIoU: 65.56%
+
+Per-class IoU:
+  road           : 93.22%
+  sidewalk       : 73.51%
+  building       : 84.48%
+  wall           : 50.58%
+  fence          : 43.82%
+  pole           : 54.44%
+  traffic light  : 67.21%
+  traffic sign   : 54.45%
+  vegetation     : 84.21%
+  terrain        : 46.74%
+  sky            : 94.17%
+  person         : 52.08%
+  rider          : 31.95%
+  car            : 82.87%
+  truck          : 74.59%
+  bus            : 89.10%
+  train          : 86.97%
+  motorcycle     : 40.46%
+  bicycle        : 40.81%
+Iter 26100/40000 | Loss: 0.1259 | Avg Loss: 0.3342 | LR: 0.000004 | Time: 3796.5s
+Iter 26200/40000 | Loss: 0.1222 | Avg Loss: 0.3337 | LR: 0.000004 | Time: 3810.1s
+Iter 26300/40000 | Loss: 0.2523 | Avg Loss: 0.3333 | LR: 0.000004 | Time: 3823.4s
+Iter 26400/40000 | Loss: 0.1993 | Avg Loss: 0.3328 | LR: 0.000004 | Time: 3836.9s
+Iter 26500/40000 | Loss: 0.2533 | Avg Loss: 0.3324 | LR: 0.000004 | Time: 3851.6s
+Iter 26600/40000 | Loss: 0.1826 | Avg Loss: 0.3320 | LR: 0.000004 | Time: 3864.9s
+Iter 26700/40000 | Loss: 0.0966 | Avg Loss: 0.3315 | LR: 0.000004 | Time: 3877.9s
+Iter 26800/40000 | Loss: 0.1667 | Avg Loss: 0.3311 | LR: 0.000004 | Time: 3891.4s
+Iter 26900/40000 | Loss: 0.1555 | Avg Loss: 0.3307 | LR: 0.000004 | Time: 3906.3s
+Iter 27000/40000 | Loss: 0.1722 | Avg Loss: 0.3303 | LR: 0.000004 | Time: 3919.1s
+Iter 27100/40000 | Loss: 0.1657 | Avg Loss: 0.3298 | LR: 0.000004 | Time: 3931.5s
+Iter 27200/40000 | Loss: 0.2842 | Avg Loss: 0.3294 | LR: 0.000004 | Time: 3944.7s
+Iter 27300/40000 | Loss: 0.3717 | Avg Loss: 0.3290 | LR: 0.000004 | Time: 3959.4s
+Iter 27400/40000 | Loss: 0.2395 | Avg Loss: 0.3285 | LR: 0.000004 | Time: 3972.1s
+Iter 27500/40000 | Loss: 0.1989 | Avg Loss: 0.3282 | LR: 0.000004 | Time: 3984.8s
+Iter 27600/40000 | Loss: 0.1720 | Avg Loss: 0.3278 | LR: 0.000004 | Time: 3997.8s
+Iter 27700/40000 | Loss: 0.1771 | Avg Loss: 0.3273 | LR: 0.000004 | Time: 4011.8s
+Iter 27800/40000 | Loss: 0.1819 | Avg Loss: 0.3269 | LR: 0.000004 | Time: 4025.6s
+Iter 27900/40000 | Loss: 0.1932 | Avg Loss: 0.3264 | LR: 0.000004 | Time: 4039.3s
+Iter 28000/40000 | Loss: 0.3280 | Avg Loss: 0.3260 | LR: 0.000004 | Time: 4052.7s
+
+=== Evaluating at iteration 28000 ===
+Val mIoU: 65.99%
+
+Per-class IoU:
+  road           : 93.26%
+  sidewalk       : 73.31%
+  building       : 84.77%
+  wall           : 50.66%
+  fence          : 43.80%
+  pole           : 54.07%
+  traffic light  : 66.70%
+  traffic sign   : 55.15%
+  vegetation     : 84.48%
+  terrain        : 46.83%
+  sky            : 94.30%
+  person         : 53.44%
+  rider          : 32.37%
+  car            : 83.74%
+  truck          : 74.97%
+  bus            : 89.61%
+  train          : 87.32%
+  motorcycle     : 41.42%
+  bicycle        : 43.58%
+Best model saved! mIoU: 65.99%
+Iter 28100/40000 | Loss: 0.0857 | Avg Loss: 0.3256 | LR: 0.000003 | Time: 4082.2s
+Iter 28200/40000 | Loss: 0.1865 | Avg Loss: 0.3253 | LR: 0.000003 | Time: 4096.2s
+Iter 28300/40000 | Loss: 0.1519 | Avg Loss: 0.3248 | LR: 0.000003 | Time: 4109.4s
+Iter 28400/40000 | Loss: 0.2092 | Avg Loss: 0.3245 | LR: 0.000003 | Time: 4122.0s
+Iter 28500/40000 | Loss: 0.2685 | Avg Loss: 0.3241 | LR: 0.000003 | Time: 4136.4s
+Iter 28600/40000 | Loss: 0.2505 | Avg Loss: 0.3238 | LR: 0.000003 | Time: 4149.8s
+Iter 28700/40000 | Loss: 0.1892 | Avg Loss: 0.3234 | LR: 0.000003 | Time: 4163.3s
+Iter 28800/40000 | Loss: 0.2223 | Avg Loss: 0.3230 | LR: 0.000003 | Time: 4176.2s
+Iter 28900/40000 | Loss: 0.2010 | Avg Loss: 0.3226 | LR: 0.000003 | Time: 4190.0s
+Iter 29000/40000 | Loss: 0.1396 | Avg Loss: 0.3223 | LR: 0.000003 | Time: 4203.9s
+Iter 29100/40000 | Loss: 0.1985 | Avg Loss: 0.3219 | LR: 0.000003 | Time: 4217.6s
+Iter 29200/40000 | Loss: 0.1118 | Avg Loss: 0.3215 | LR: 0.000003 | Time: 4231.5s
+Iter 29300/40000 | Loss: 0.0731 | Avg Loss: 0.3212 | LR: 0.000003 | Time: 4245.4s
+Iter 29400/40000 | Loss: 0.1845 | Avg Loss: 0.3208 | LR: 0.000003 | Time: 4258.7s
+Iter 29500/40000 | Loss: 0.1210 | Avg Loss: 0.3204 | LR: 0.000003 | Time: 4271.8s
+Iter 29600/40000 | Loss: 0.1918 | Avg Loss: 0.3200 | LR: 0.000003 | Time: 4284.3s
+Iter 29700/40000 | Loss: 0.1058 | Avg Loss: 0.3196 | LR: 0.000003 | Time: 4299.7s
+Iter 29800/40000 | Loss: 0.5733 | Avg Loss: 0.3193 | LR: 0.000003 | Time: 4313.2s
+Iter 29900/40000 | Loss: 0.2397 | Avg Loss: 0.3189 | LR: 0.000003 | Time: 4326.3s
+Iter 30000/40000 | Loss: 0.2651 | Avg Loss: 0.3186 | LR: 0.000003 | Time: 4339.2s
+
+=== Evaluating at iteration 30000 ===
+Val mIoU: 66.04%
+
+Per-class IoU:
+  road           : 93.45%
+  sidewalk       : 73.75%
+  building       : 84.79%
+  wall           : 50.93%
+  fence          : 44.79%
+  pole           : 54.18%
+  traffic light  : 67.37%
+  traffic sign   : 54.96%
+  vegetation     : 84.60%
+  terrain        : 47.30%
+  sky            : 94.47%
+  person         : 53.53%
+  rider          : 32.61%
+  car            : 83.55%
+  truck          : 73.98%
+  bus            : 89.17%
+  train          : 87.59%
+  motorcycle     : 40.75%
+  bicycle        : 43.05%
+Best model saved! mIoU: 66.04%
+Periodic checkpoint saved at iter 30000
+Iter 30100/40000 | Loss: 0.9202 | Avg Loss: 0.3183 | LR: 0.000003 | Time: 4370.4s
+Iter 30200/40000 | Loss: 0.3117 | Avg Loss: 0.3179 | LR: 0.000003 | Time: 4384.1s
+Iter 30300/40000 | Loss: 0.1343 | Avg Loss: 0.3176 | LR: 0.000003 | Time: 4398.2s
+Iter 30400/40000 | Loss: 0.1833 | Avg Loss: 0.3172 | LR: 0.000003 | Time: 4411.1s
+Iter 30500/40000 | Loss: 0.3328 | Avg Loss: 0.3169 | LR: 0.000003 | Time: 4425.1s
+Iter 30600/40000 | Loss: 0.2787 | Avg Loss: 0.3165 | LR: 0.000003 | Time: 4438.3s
+Iter 30700/40000 | Loss: 0.3044 | Avg Loss: 0.3162 | LR: 0.000003 | Time: 4451.5s
+Iter 30800/40000 | Loss: 0.2458 | Avg Loss: 0.3159 | LR: 0.000003 | Time: 4464.8s
+Iter 30900/40000 | Loss: 0.1090 | Avg Loss: 0.3155 | LR: 0.000003 | Time: 4479.2s
+Iter 31000/40000 | Loss: 0.1638 | Avg Loss: 0.3151 | LR: 0.000003 | Time: 4492.9s
+Iter 31100/40000 | Loss: 0.2157 | Avg Loss: 0.3148 | LR: 0.000003 | Time: 4506.8s
+Iter 31200/40000 | Loss: 0.2874 | Avg Loss: 0.3145 | LR: 0.000003 | Time: 4521.2s
+Iter 31300/40000 | Loss: 0.2721 | Avg Loss: 0.3141 | LR: 0.000003 | Time: 4535.8s
+Iter 31400/40000 | Loss: 0.1394 | Avg Loss: 0.3137 | LR: 0.000003 | Time: 4548.5s
+Iter 31500/40000 | Loss: 0.2747 | Avg Loss: 0.3134 | LR: 0.000003 | Time: 4561.4s
+Iter 31600/40000 | Loss: 0.2802 | Avg Loss: 0.3131 | LR: 0.000003 | Time: 4573.7s
+Iter 31700/40000 | Loss: 0.1908 | Avg Loss: 0.3127 | LR: 0.000003 | Time: 4588.0s
+Iter 31800/40000 | Loss: 0.0581 | Avg Loss: 0.3124 | LR: 0.000002 | Time: 4602.1s
+Iter 31900/40000 | Loss: 0.1248 | Avg Loss: 0.3120 | LR: 0.000002 | Time: 4616.5s
+Iter 32000/40000 | Loss: 0.3076 | Avg Loss: 0.3117 | LR: 0.000002 | Time: 4629.6s
+
+=== Evaluating at iteration 32000 ===
+Val mIoU: 66.24%
+
+Per-class IoU:
+  road           : 93.42%
+  sidewalk       : 73.83%
+  building       : 84.82%
+  wall           : 51.14%
+  fence          : 44.22%
+  pole           : 55.16%
+  traffic light  : 67.33%
+  traffic sign   : 55.18%
+  vegetation     : 84.53%
+  terrain        : 47.46%
+  sky            : 94.36%
+  person         : 52.65%
+  rider          : 32.73%
+  car            : 82.92%
+  truck          : 75.35%
+  bus            : 89.35%
+  train          : 87.74%
+  motorcycle     : 41.86%
+  bicycle        : 44.58%
+Best model saved! mIoU: 66.24%
+Iter 32100/40000 | Loss: 0.2070 | Avg Loss: 0.3114 | LR: 0.000002 | Time: 4659.3s
+Iter 32200/40000 | Loss: 0.0604 | Avg Loss: 0.3111 | LR: 0.000002 | Time: 4672.4s
+Iter 32300/40000 | Loss: 0.0717 | Avg Loss: 0.3108 | LR: 0.000002 | Time: 4686.9s
+Iter 32400/40000 | Loss: 0.1767 | Avg Loss: 0.3105 | LR: 0.000002 | Time: 4700.3s
+Iter 32500/40000 | Loss: 0.0859 | Avg Loss: 0.3103 | LR: 0.000002 | Time: 4714.8s
+Iter 32600/40000 | Loss: 0.1761 | Avg Loss: 0.3099 | LR: 0.000002 | Time: 4728.2s
+Iter 32700/40000 | Loss: 0.3995 | Avg Loss: 0.3096 | LR: 0.000002 | Time: 4740.7s
+Iter 32800/40000 | Loss: 0.1405 | Avg Loss: 0.3093 | LR: 0.000002 | Time: 4754.2s
+Iter 32900/40000 | Loss: 0.1974 | Avg Loss: 0.3090 | LR: 0.000002 | Time: 4768.0s
+Iter 33000/40000 | Loss: 0.1388 | Avg Loss: 0.3087 | LR: 0.000002 | Time: 4782.5s
+Iter 33100/40000 | Loss: 0.3514 | Avg Loss: 0.3083 | LR: 0.000002 | Time: 4795.9s
+Iter 33200/40000 | Loss: 0.1103 | Avg Loss: 0.3080 | LR: 0.000002 | Time: 4808.8s
+Iter 33300/40000 | Loss: 0.2495 | Avg Loss: 0.3077 | LR: 0.000002 | Time: 4823.6s
+Iter 33400/40000 | Loss: 0.1191 | Avg Loss: 0.3074 | LR: 0.000002 | Time: 4837.0s
+Iter 33500/40000 | Loss: 0.1384 | Avg Loss: 0.3071 | LR: 0.000002 | Time: 4850.4s
+Iter 33600/40000 | Loss: 0.3141 | Avg Loss: 0.3068 | LR: 0.000002 | Time: 4863.7s
+Iter 33700/40000 | Loss: 0.1674 | Avg Loss: 0.3065 | LR: 0.000002 | Time: 4878.2s
+Iter 33800/40000 | Loss: 0.1507 | Avg Loss: 0.3062 | LR: 0.000002 | Time: 4891.4s
+Iter 33900/40000 | Loss: 0.1715 | Avg Loss: 0.3059 | LR: 0.000002 | Time: 4904.7s
+Iter 34000/40000 | Loss: 0.2374 | Avg Loss: 0.3057 | LR: 0.000002 | Time: 4918.2s
+
+=== Evaluating at iteration 34000 ===
+Val mIoU: 65.85%
+
+Per-class IoU:
+  road           : 93.27%
+  sidewalk       : 73.48%
+  building       : 84.76%
+  wall           : 51.07%
+  fence          : 44.21%
+  pole           : 54.61%
+  traffic light  : 67.04%
+  traffic sign   : 55.11%
+  vegetation     : 84.53%
+  terrain        : 46.75%
+  sky            : 94.39%
+  person         : 52.08%
+  rider          : 31.38%
+  car            : 83.47%
+  truck          : 75.13%
+  bus            : 88.71%
+  train          : 87.80%
+  motorcycle     : 39.56%
+  bicycle        : 43.80%
+Iter 34100/40000 | Loss: 0.3988 | Avg Loss: 0.3054 | LR: 0.000002 | Time: 4948.2s
+Iter 34200/40000 | Loss: 0.6303 | Avg Loss: 0.3051 | LR: 0.000002 | Time: 4961.3s
+Iter 34300/40000 | Loss: 0.1352 | Avg Loss: 0.3048 | LR: 0.000002 | Time: 4975.0s
+Iter 34400/40000 | Loss: 0.1114 | Avg Loss: 0.3046 | LR: 0.000002 | Time: 4988.2s
+Iter 34500/40000 | Loss: 0.2616 | Avg Loss: 0.3043 | LR: 0.000002 | Time: 5002.4s
+Iter 34600/40000 | Loss: 0.2195 | Avg Loss: 0.3040 | LR: 0.000002 | Time: 5016.1s
+Iter 34700/40000 | Loss: 0.3648 | Avg Loss: 0.3037 | LR: 0.000002 | Time: 5029.9s
+Iter 34800/40000 | Loss: 0.0929 | Avg Loss: 0.3035 | LR: 0.000002 | Time: 5042.3s
+Iter 34900/40000 | Loss: 0.1616 | Avg Loss: 0.3031 | LR: 0.000002 | Time: 5056.8s
+Iter 35000/40000 | Loss: 0.1600 | Avg Loss: 0.3028 | LR: 0.000002 | Time: 5070.5s
+Periodic checkpoint saved at iter 35000
+Iter 35100/40000 | Loss: 0.2134 | Avg Loss: 0.3026 | LR: 0.000002 | Time: 5083.9s
+Iter 35200/40000 | Loss: 0.2194 | Avg Loss: 0.3024 | LR: 0.000002 | Time: 5098.2s
+Iter 35300/40000 | Loss: 0.0857 | Avg Loss: 0.3021 | LR: 0.000002 | Time: 5111.5s
+Iter 35400/40000 | Loss: 0.2269 | Avg Loss: 0.3019 | LR: 0.000001 | Time: 5125.1s
+Iter 35500/40000 | Loss: 0.0871 | Avg Loss: 0.3017 | LR: 0.000001 | Time: 5138.5s
+Iter 35600/40000 | Loss: 0.0757 | Avg Loss: 0.3015 | LR: 0.000001 | Time: 5151.4s
+Iter 35700/40000 | Loss: 0.1893 | Avg Loss: 0.3012 | LR: 0.000001 | Time: 5165.5s
+Iter 35800/40000 | Loss: 0.1681 | Avg Loss: 0.3009 | LR: 0.000001 | Time: 5179.5s
+Iter 35900/40000 | Loss: 0.1043 | Avg Loss: 0.3006 | LR: 0.000001 | Time: 5193.2s
+Iter 36000/40000 | Loss: 0.2019 | Avg Loss: 0.3004 | LR: 0.000001 | Time: 5206.1s
+
+=== Evaluating at iteration 36000 ===
+Val mIoU: 66.27%
+
+Per-class IoU:
+  road           : 93.50%
+  sidewalk       : 74.02%
+  building       : 84.82%
+  wall           : 51.22%
+  fence          : 43.53%
+  pole           : 54.70%
+  traffic light  : 67.31%
+  traffic sign   : 55.29%
+  vegetation     : 84.56%
+  terrain        : 47.28%
+  sky            : 94.39%
+  person         : 53.20%
+  rider          : 31.83%
+  car            : 83.66%
+  truck          : 75.66%
+  bus            : 90.06%
+  train          : 87.67%
+  motorcycle     : 41.12%
+  bicycle        : 45.25%
+Best model saved! mIoU: 66.27%
+Iter 36100/40000 | Loss: 0.0980 | Avg Loss: 0.3001 | LR: 0.000001 | Time: 5236.0s
+Iter 36200/40000 | Loss: 0.1918 | Avg Loss: 0.2998 | LR: 0.000001 | Time: 5250.1s
+Iter 36300/40000 | Loss: 0.0719 | Avg Loss: 0.2996 | LR: 0.000001 | Time: 5263.4s
+Iter 36400/40000 | Loss: 0.4159 | Avg Loss: 0.2993 | LR: 0.000001 | Time: 5276.7s
+Iter 36500/40000 | Loss: 0.2057 | Avg Loss: 0.2990 | LR: 0.000001 | Time: 5291.5s
+Iter 36600/40000 | Loss: 0.1110 | Avg Loss: 0.2988 | LR: 0.000001 | Time: 5304.9s
+Iter 36700/40000 | Loss: 0.4097 | Avg Loss: 0.2985 | LR: 0.000001 | Time: 5317.6s
+Iter 36800/40000 | Loss: 0.4579 | Avg Loss: 0.2983 | LR: 0.000001 | Time: 5330.9s
+Iter 36900/40000 | Loss: 0.0657 | Avg Loss: 0.2980 | LR: 0.000001 | Time: 5345.6s
+Iter 37000/40000 | Loss: 0.3004 | Avg Loss: 0.2977 | LR: 0.000001 | Time: 5358.6s
+Iter 37100/40000 | Loss: 0.1070 | Avg Loss: 0.2975 | LR: 0.000001 | Time: 5371.3s
+Iter 37200/40000 | Loss: 0.2805 | Avg Loss: 0.2972 | LR: 0.000001 | Time: 5384.7s
+Iter 37300/40000 | Loss: 0.1425 | Avg Loss: 0.2970 | LR: 0.000001 | Time: 5398.3s
+Iter 37400/40000 | Loss: 0.1314 | Avg Loss: 0.2967 | LR: 0.000001 | Time: 5411.8s
+Iter 37500/40000 | Loss: 0.1780 | Avg Loss: 0.2964 | LR: 0.000001 | Time: 5424.8s
+Iter 37600/40000 | Loss: 0.0998 | Avg Loss: 0.2962 | LR: 0.000001 | Time: 5436.9s
+Iter 37700/40000 | Loss: 0.0726 | Avg Loss: 0.2959 | LR: 0.000001 | Time: 5450.9s
+Iter 37800/40000 | Loss: 0.1105 | Avg Loss: 0.2956 | LR: 0.000001 | Time: 5463.9s
+Iter 37900/40000 | Loss: 0.2743 | Avg Loss: 0.2954 | LR: 0.000001 | Time: 5477.6s
+Iter 38000/40000 | Loss: 0.1629 | Avg Loss: 0.2952 | LR: 0.000001 | Time: 5490.9s
+
+=== Evaluating at iteration 38000 ===
+Val mIoU: 66.06%
+
+Per-class IoU:
+  road           : 93.56%
+  sidewalk       : 74.26%
+  building       : 84.87%
+  wall           : 50.43%
+  fence          : 43.64%
+  pole           : 55.05%
+  traffic light  : 67.19%
+  traffic sign   : 55.49%
+  vegetation     : 84.36%
+  terrain        : 46.78%
+  sky            : 94.26%
+  person         : 52.96%
+  rider          : 30.36%
+  car            : 83.44%
+  truck          : 75.49%
+  bus            : 89.56%
+  train          : 87.89%
+  motorcycle     : 41.51%
+  bicycle        : 44.09%
+Iter 38100/40000 | Loss: 0.2292 | Avg Loss: 0.2950 | LR: 0.000001 | Time: 5519.7s
+Iter 38200/40000 | Loss: 0.1914 | Avg Loss: 0.2948 | LR: 0.000001 | Time: 5533.9s
+Iter 38300/40000 | Loss: 0.3861 | Avg Loss: 0.2945 | LR: 0.000001 | Time: 5547.4s
+Iter 38400/40000 | Loss: 0.2271 | Avg Loss: 0.2943 | LR: 0.000001 | Time: 5560.9s
+Iter 38500/40000 | Loss: 0.7613 | Avg Loss: 0.2940 | LR: 0.000001 | Time: 5575.4s
+Iter 38600/40000 | Loss: 0.1897 | Avg Loss: 0.2938 | LR: 0.000001 | Time: 5588.5s
+Iter 38700/40000 | Loss: 0.1165 | Avg Loss: 0.2936 | LR: 0.000000 | Time: 5601.3s
+Iter 38800/40000 | Loss: 0.1426 | Avg Loss: 0.2933 | LR: 0.000000 | Time: 5614.6s
+Iter 38900/40000 | Loss: 0.4338 | Avg Loss: 0.2931 | LR: 0.000000 | Time: 5629.0s
+Iter 39000/40000 | Loss: 0.1449 | Avg Loss: 0.2929 | LR: 0.000000 | Time: 5642.8s
+Iter 39100/40000 | Loss: 0.2381 | Avg Loss: 0.2926 | LR: 0.000000 | Time: 5655.8s
+Iter 39200/40000 | Loss: 0.5224 | Avg Loss: 0.2925 | LR: 0.000000 | Time: 5669.2s
+Iter 39300/40000 | Loss: 0.2221 | Avg Loss: 0.2922 | LR: 0.000000 | Time: 5684.0s
+Iter 39400/40000 | Loss: 0.1292 | Avg Loss: 0.2920 | LR: 0.000000 | Time: 5697.6s
+Iter 39500/40000 | Loss: 0.0970 | Avg Loss: 0.2918 | LR: 0.000000 | Time: 5711.5s
+Iter 39600/40000 | Loss: 0.2711 | Avg Loss: 0.2915 | LR: 0.000000 | Time: 5723.8s
+Iter 39700/40000 | Loss: 0.4169 | Avg Loss: 0.2913 | LR: 0.000000 | Time: 5737.6s
+Iter 39800/40000 | Loss: 0.1169 | Avg Loss: 0.2911 | LR: 0.000000 | Time: 5751.4s
+Iter 39900/40000 | Loss: 0.2093 | Avg Loss: 0.2909 | LR: 0.000000 | Time: 5765.6s
+Iter 40000/40000 | Loss: 0.1214 | Avg Loss: 0.2907 | LR: 0.000000 | Time: 5779.1s
+
+=== Evaluating at iteration 40000 ===
+Val mIoU: 65.73%
+
+Per-class IoU:
+  road           : 93.37%
+  sidewalk       : 73.72%
+  building       : 84.71%
+  wall           : 50.19%
+  fence          : 43.51%
+  pole           : 55.24%
+  traffic light  : 67.18%
+  traffic sign   : 55.04%
+  vegetation     : 84.10%
+  terrain        : 46.43%
+  sky            : 94.16%
+  person         : 52.38%
+  rider          : 29.28%
+  car            : 83.37%
+  truck          : 74.90%
+  bus            : 89.25%
+  train          : 87.50%
+  motorcycle     : 40.05%
+  bicycle        : 44.48%
+Periodic checkpoint saved at iter 40000
+
+==================================================
+Training complete! Best mIoU: 66.27%
+==================================================
